@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://gitee.com/Gu-taicheng/image/raw/master/img/image-20250117181412814.png">
 <meta property="article:published_time" content="2025-01-18T10:15:41.000Z">
-<meta property="article:modified_time" content="2025-01-17T11:58:19.168Z">
+<meta property="article:modified_time" content="2025-01-20T16:21:10.122Z">
 <meta property="article:author" content="GuTaicheng">
 <meta property="article:tag" content="Git">
 <meta name="twitter:card" content="summary_large_image">
@@ -246,7 +246,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.6k 字
+          2.7k 字
         
       </span>
     
@@ -257,7 +257,7 @@
         
         
         
-          14 分钟
+          23 分钟
         
       </span>
     
@@ -367,10 +367,79 @@
 <h2 id="已修改-Modified"><a href="#已修改-Modified" class="headerlink" title="已修改 Modified"></a>已修改 Modified</h2><p>修改过，但未放入暂存区</p>
 <h2 id="已暂存-Staged"><a href="#已暂存-Staged" class="headerlink" title="已暂存 Staged"></a>已暂存 Staged</h2><p>已放入暂存区</p>
 <p><img src="https://gitee.com/Gu-taicheng/image/raw/master/img/image-20250117145030485.png" srcset="/img/loading.gif" lazyload alt="image-20250117145030485"></p>
+<h1 id="添加和提交"><a href="#添加和提交" class="headerlink" title="添加和提交"></a>添加和提交</h1><h2 id="git-status"><a href="#git-status" class="headerlink" title="git status"></a>git status</h2><p>使用<strong>git status</strong>命令可查看当前仓库的状态</p>
+<p><img src="https://gitee.com/Gu-taicheng/image/raw/master/img/image-20250120131150102.png" srcset="/img/loading.gif" lazyload alt="image-20250120131150102"></p>
+<p>初始提示“nothing to commit ”</p>
+<p>在工作区创建一个新文件“<strong>file1.txt</strong>”，再输入<strong>git status</strong>查看状态。</p>
+<p><img src="https://gitee.com/Gu-taicheng/image/raw/master/img/image-20250120131422754.png" srcset="/img/loading.gif" lazyload alt="image-20250120131422754"></p>
+<p>提示仍然“<strong>nothing to commit</strong>”，但是多了“<strong>untracked file present</strong>”，存在未跟踪的文件。</p>
+<h2 id="git-add与git-commit"><a href="#git-add与git-commit" class="headerlink" title="git add与git commit"></a>git add与git commit</h2><p>现在通过<strong>git add</strong>命令将<strong>file1.txt</strong>加入<strong>暂存区</strong></p>
+<p><img src="https://gitee.com/Gu-taicheng/image/raw/master/img/image-20250120131649931.png" srcset="/img/loading.gif" lazyload alt="image-20250120131649931"></p>
+<p>加入后再查看git仓库状态：</p>
+<p><img src="https://gitee.com/Gu-taicheng/image/raw/master/img/image-20250120131737276.png" srcset="/img/loading.gif" lazyload alt="image-20250120131737276"></p>
+<p>可见<strong>file1</strong>已经变成了绿色，且“<strong>No commit yet</strong>”，且提示可使用 “<strong>git rm –cached</strong> ” 将文件移除暂存区</p>
+<blockquote>
+<p>[!NOTE]</p>
+<p>注意：若一个文件并未通过<strong>git add</strong> 添加到暂存区，则无法被提交</p>
+<p>例如新创建一个<strong>file2</strong>，直接提交，只有处在暂存区的<strong>file1</strong>会提交，<strong>file2</strong>仍然不会提交</p>
+<p><img src="https://gitee.com/Gu-taicheng/image/raw/master/img/image-20250120134131841.png" srcset="/img/loading.gif" lazyload alt="image-20250120134131841"></p>
+<p><img src="https://gitee.com/Gu-taicheng/image/raw/master/img/image-20250120133955255.png" srcset="/img/loading.gif" lazyload alt="image-20250120133955255"></p>
+</blockquote>
+<p>使用 <strong>git add .</strong> 可将所有未跟踪的（<strong>untracked</strong>）文件全部加入暂存区</p>
+<h2 id="git-log"><a href="#git-log" class="headerlink" title="git log"></a>git log</h2><p>使用git log可查看提交的日志，其中作者名称和邮箱就是第二步配置的：</p>
+<p><img src="https://gitee.com/Gu-taicheng/image/raw/master/img/image-20250120134253044.png" srcset="/img/loading.gif" lazyload alt="image-20250120134253044"></p>
+<p>在后面加上 **–oneline **可精简日志：</p>
+<p><img src="https://gitee.com/Gu-taicheng/image/raw/master/img/image-20250120134344412.png" srcset="/img/loading.gif" lazyload alt="image-20250120134344412"></p>
+<h1 id="git-reset-回退版本"><a href="#git-reset-回退版本" class="headerlink" title="git reset 回退版本"></a>git reset 回退版本</h1><p>详细见图：</p>
+<p><img src="https://gitee.com/Gu-taicheng/image/raw/master/img/image-20250120205549490.png" srcset="/img/loading.gif" lazyload alt="image-20250120205549490"></p>
+<p>详细演示：</p>
+<ul>
+<li><p>先添加三个文件，并且分三次提交（省略add和commit截图，直接查看log）</p>
+<p><img src="https://gitee.com/Gu-taicheng/image/raw/master/img/image-20250120205717384.png" srcset="/img/loading.gif" lazyload alt="image-20250120205717384"></p>
+<p><img src="https://gitee.com/Gu-taicheng/image/raw/master/img/image-20250120205857810.png" srcset="/img/loading.gif" lazyload alt="image-20250120205857810"></p>
+</li>
+<li><p>接下来我通过<strong>git reset –mixed</strong>回退到版本2</p>
+<p><img src="https://gitee.com/Gu-taicheng/image/raw/master/img/image-20250120210855544.png" srcset="/img/loading.gif" lazyload alt="image-20250120210855544"></p>
+<p><img src="https://gitee.com/Gu-taicheng/image/raw/master/img/image-20250120210928324.png" srcset="/img/loading.gif" lazyload alt="image-20250120210928324"></p>
+</li>
+<li><p>重新提交reset3后，再通过git reset –soft回退到版本1</p>
+<p><img src="https://gitee.com/Gu-taicheng/image/raw/master/img/image-20250120221418540.png" srcset="/img/loading.gif" lazyload alt="image-20250120221418540"></p>
+<p><img src="https://gitee.com/Gu-taicheng/image/raw/master/img/image-20250120221743884.png" srcset="/img/loading.gif" lazyload alt="image-20250120221743884"></p>
+</li>
+<li><p>最后重新提交后，使用<strong>git reset –hard</strong>回退到 “<strong>第一次提交</strong>”，将全部回到最初的样子。</p>
+<p><img src="https://gitee.com/Gu-taicheng/image/raw/master/img/image-20250120222152953.png" srcset="/img/loading.gif" lazyload alt="image-20250120222152953"></p>
+</li>
+</ul>
+<h1 id="git-diff查看差异"><a href="#git-diff查看差异" class="headerlink" title="git diff查看差异"></a>git diff查看差异</h1><p><img src="https://gitee.com/Gu-taicheng/image/raw/master/img/image-20250121002006705.png" srcset="/img/loading.gif" lazyload alt="image-20250121002006705"></p>
+<ul>
+<li><strong>git diff</strong> 查看工作区与暂存区之间的差异；若暂存区中没有文件，则会比较上一个版本的暂存区（也可以理解成最新的版本库）或者说会比较尚未暂存的文件的差异</li>
+<li><strong>git diff HEAD</strong> 查看工作区、暂存区与本地仓库之间的差异；或者说查看已缓存的与未缓存的所有改动</li>
+<li><strong>git diff –cached</strong> 查看暂存区与本地仓库之间的差异</li>
+<li><strong>git diff <commit_hash> <commit_hash></strong> 查看两次提交之间的差异；可以使用<strong>HEAD</strong>表示当前版本，<strong>HEAD~<number><strong>表示</strong>HEAD</strong>的前<strong>number</strong>个版本；例如<strong>git diff HEAD~3 HEAD</strong>，即比较从<strong>HEAD</strong>的上一个开始数的第<strong>3</strong>个，和<strong>HEAD</strong>之间的差异</li>
+<li>**git diff <branch_name> <branch_name>**比较分支之间的差异</li>
+</ul>
+<blockquote>
+<p>注意：以上所有命令都可以在最后添加具体的文件名，可以只查看这一个文件的差异</p>
+</blockquote>
+<p>演示如下：</p>
+<ul>
+<li><p>仓库的初始状态</p>
+<p><img src="https://gitee.com/Gu-taicheng/image/raw/master/img/image-20250121000252071.png" srcset="/img/loading.gif" lazyload alt="image-20250121000252071"></p>
+</li>
+<li><p>现在我将<strong>file3.txt</strong>的内容修改为：“我修改了第三个文件”，直接使用git diff查看，可以查看未缓存的文件的差异</p>
+<p><img src="https://gitee.com/Gu-taicheng/image/raw/master/img/image-20250121000656197.png" srcset="/img/loading.gif" lazyload alt="image-20250121000656197"></p>
+</li>
+<li><p>现在我将其<strong>add</strong>后，再次查看差异</p>
+<p><img src="https://gitee.com/Gu-taicheng/image/raw/master/img/image-20250121001426117.png" srcset="/img/loading.gif" lazyload alt="image-20250121001426117"></p>
+</li>
+<li><p>现在我将其<strong>commit</strong>之后</p>
+<p><img src="https://gitee.com/Gu-taicheng/image/raw/master/img/image-20250121001918504.png" srcset="/img/loading.gif" lazyload alt="image-20250121001918504"></p>
+</li>
+</ul>
 <h1 id="配置GitHub密钥"><a href="#配置GitHub密钥" class="headerlink" title="配置GitHub密钥"></a>配置GitHub密钥</h1><figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">ssh</span>-keygen -t rsa -b <span class="hljs-number">4096</span> -C <span class="hljs-string">&quot;mail@example.com&quot;</span><br><span class="hljs-comment"># 第一次连续回车三次即可</span><br></code></pre></td></tr></table></figure>
 
 <p><img src="https://gitee.com/Gu-taicheng/image/raw/master/img/image-20250117193333087.png" srcset="/img/loading.gif" lazyload alt="image-20250117193333087"></p>
-<p>查看生成的密钥</p>
+<p> 查看生成的密钥</p>
 <p><img src="https://gitee.com/Gu-taicheng/image/raw/master/img/image-20250117193540884.png" srcset="/img/loading.gif" lazyload alt="image-20250117193540884"></p>
 <p>复制 id_rsa.pub公钥中的内容，打开GitHub–头像–setting–SSH and GPG keys–New ssh key</p>
 <figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs nginx"><span class="hljs-attribute">vi</span> id_rsa.pub<br><span class="hljs-comment"># windows以文本打开也行</span><br></code></pre></td></tr></table></figure>
