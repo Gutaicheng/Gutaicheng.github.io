@@ -6,53 +6,25 @@
     <style>
         body {
             margin: 0;
-            min-height: 100vh;
+            height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
             background: linear-gradient(135deg, #ff9a9e, #fad0c4);
-            font-family: '楷体', cursive;
+            font-family: '宋体', cursive;
         }
 
         .card {
-            width: 90vw;
-            height: 130vw;  /* 保持4:5比例 */
-            max-width: 400px;
-            max-height: 500px;
+            width: 800px;
+            height: 1000px;
             position: relative;
             transform-style: preserve-3d;
             transition: all 1s;
             cursor: pointer;
-            margin: 20px;
         }
 
-        /* 移动端优化 */
-        @media (max-width: 480px) {
-            .card {
-                width: 95vw;
-                height: 135vw;
-            }
-            
-            h1 {
-                font-size: 1.5em;
-                margin: 10px 0;
-            }
-            
-            .message {
-                font-size: 16px;
-                padding: 10px;
-            }
-            
-            .heart {
-                font-size: 40px;
-            }
-        }
-
-        /* 桌面端样式 */
-        @media (min-width: 768px) {
-            .card:hover {
-                transform: scale(1.05);
-            }
+        .card:hover {
+            transform: scale(1.05);
         }
 
         .card.flipped {
@@ -65,9 +37,9 @@
             position: absolute;
             backface-visibility: hidden;
             border-radius: 15px;
-            padding: 15px;
+            padding: 20px;
             box-sizing: border-box;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
         }
 
         .front {
@@ -77,38 +49,29 @@
             justify-content: center;
             align-items: center;
             color: #fff;
-            text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
         }
 
         .back {
             background: #fff;
             transform: rotateY(180deg);
             overflow: hidden;
-            padding: 20px;
         }
 
         .heart {
-            font-size: 50px;
+            font-size: 100px;
             animation: float 2s ease-in-out infinite;
         }
 
         h1 {
-            margin: 15px 0;
+            margin: 20px 0;
             text-align: center;
-            font-size: 2em;
         }
 
         .message {
-            font-size: 18px;
+            font-size: 32px;
             line-height: 1.6;
             text-align: justify;
-        }
-
-        /* 触摸优化 */
-        @media (hover: none) {
-            .card {
-                cursor: default;
-            }
         }
 
         .petals {
@@ -156,7 +119,7 @@
                 <p>最坚强的后盾，</p>
                 <p>愿您永远健康美丽，</p>
                 <p>幸福安康！💐</p>
-                <p style="text-align: right;">—— 爱您的孩子：王雅婷 ❤️</p>
+                <p style="text-align: right;">—— 爱您的孩子 ❤️</p>
             </div>
         </div>
     </div>
