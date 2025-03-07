@@ -79,31 +79,6 @@
   
   
   <entry>
-    <title>VM安装ubuntu server 22.04 LTS(长期支持)</title>
-    <link href="/2025/01/05/VM%E5%AE%89%E8%A3%85ubuntu%20server%2022.04%20LTS(%E9%95%BF%E6%9C%9F%E6%94%AF%E6%8C%81)/"/>
-    <url>/2025/01/05/VM%E5%AE%89%E8%A3%85ubuntu%20server%2022.04%20LTS(%E9%95%BF%E6%9C%9F%E6%94%AF%E6%8C%81)/</url>
-    
-    <content type="html"><![CDATA[<meta name="referrer" content="no-referrer" /><h1 id="转载"><a href="#转载" class="headerlink" title="转载"></a>转载</h1><p><a href="https://blog.csdn.net/u010308917/article/details/125157774">VMware 虚拟机图文安装和配置 Ubuntu Server 22.04 LTS 教程_00-installer-config.yaml-CSDN博客</a></p><blockquote><p>转载自CSDN，源链接<a href="https://blog.csdn.net/u010308917/article/details/125157774">https://blog.csdn.net/u010308917/article/details/125157774</a></p></blockquote>]]></content>
-    
-    
-    <categories>
-      
-      <category>Linux</category>
-      
-    </categories>
-    
-    
-    <tags>
-      
-      <tag>Linux - 虚拟机</tag>
-      
-    </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
     <title>ubuntu下安装Redis</title>
     <link href="/2025/01/05/ubuntu%E5%AE%89%E8%A3%85Redis/"/>
     <url>/2025/01/05/ubuntu%E5%AE%89%E8%A3%85Redis/</url>
@@ -146,6 +121,31 @@
     <tags>
       
       <tag>Linux</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>VM安装ubuntu server 22.04 LTS(长期支持)</title>
+    <link href="/2025/01/05/VM%E5%AE%89%E8%A3%85ubuntu%20server%2022.04%20LTS(%E9%95%BF%E6%9C%9F%E6%94%AF%E6%8C%81)/"/>
+    <url>/2025/01/05/VM%E5%AE%89%E8%A3%85ubuntu%20server%2022.04%20LTS(%E9%95%BF%E6%9C%9F%E6%94%AF%E6%8C%81)/</url>
+    
+    <content type="html"><![CDATA[<meta name="referrer" content="no-referrer" /><h1 id="转载"><a href="#转载" class="headerlink" title="转载"></a>转载</h1><p><a href="https://blog.csdn.net/u010308917/article/details/125157774">VMware 虚拟机图文安装和配置 Ubuntu Server 22.04 LTS 教程_00-installer-config.yaml-CSDN博客</a></p><blockquote><p>转载自CSDN，源链接<a href="https://blog.csdn.net/u010308917/article/details/125157774">https://blog.csdn.net/u010308917/article/details/125157774</a></p></blockquote>]]></content>
+    
+    
+    <categories>
+      
+      <category>Linux</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Linux - 虚拟机</tag>
       
     </tags>
     
