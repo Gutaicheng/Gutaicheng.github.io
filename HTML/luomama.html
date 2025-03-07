@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>给妈妈的妇女节祝福</title>
+    <style>
+        body {
+            background: linear-gradient(45deg, #ffb6c1, #ff69b4);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+            overflow: hidden;
+            font-family: 'Ma Shan Zheng', cursive;
+            cursor: pointer;
+        }
+
+        .card-container {
+            position: relative;
+            transition: transform 0.5s;
+        }
+
+        .flower {
+            width: 200px;
+            height: 200px;
+            position: relative;
+            transition: transform 0.8s;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .petal {
+            position: absolute;
+            width: 40px;
+            height: 80px;
+            background: #fff;
+            border-radius: 20px 20px 40px 40px;
+            transform-origin: bottom center;
+            box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+            pointer-events: none;
+        }
+
+        @keyframes bloom {
+            0% { transform: rotate(0deg) translateY(0); }
+            100% { transform: rotate(var(--rot)) translateY(-60px); }
+        }
+
+        .bloom .petal {
+            animation: bloom 1s ease-out forwards;
+        }
+
+        .message {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            opacity: 0;
+            transition: opacity 1s;
+            text-align: center;
+            color: #d6006e;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 25px 40px;
+            border-radius: 15px;
+            box-shadow: 0 0 25px rgba(255,105,180,0.4);
+            z-index: 2;
+            min-width: 500px;
+            pointer-events: none;
+        }
+
+        .show {
+            opacity: 1;
+        }
+
+        h1 {
+            font-family: 'Ma Shan Zheng', cursive;
+            font-size: 2.5em;
+            margin: 0 0 15px 0;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        }
+
+        p {
+            font-family: 'Zhi Mang Xing', cursive;
+            font-size: 1.8em;
+            margin: 15px 0;
+            line-height: 1.5;
+        }
+
+        .falling-petals span {
+            position: absolute;
+            animation: fall linear infinite;
+            opacity: 0.8;
+            pointer-events: none;
+        }
+
+        @keyframes fall {
+            0% { transform: translateY(-100vh) rotate(0deg); }
+            100% { transform: translateY(100vh) rotate(360deg); }
+        }
+
+        .guide-text {
+            position: absolute;
+            top: 70%;
+            left: 50%;
+            transform: translateX(-50%);
+            color: rgba(255, 255, 255, 0.95);
+            font-size: 1.8em;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+            animation: pulse 2.5s infinite;
+            opacity: 0;
+            transition: opacity 1s;
+            white-space: nowrap;
+        }
+
+        @keyframes pulse {
+            0% { transform: translateX(-50%) scale(0.95); opacity: 0; }
+            50% { transform: translateX(-50%) scale(1.1); opacity: 1; }
+            100% { transform: translateX(-50%) scale(0.95); opacity: 0; }
+        }
+
+        .flower::before {
+            content: "❤";
+            position: absolute;
+            color: #ff1493;
+            font-size: 50px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation: glow 1.5s ease-in-out infinite;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        @keyframes glow {
+            0% { text-shadow: 0 0 10px #ff69b4; }
+            50% { text-shadow: 0 0 20px #ffffff; }
+            100% { text-shadow: 0 0 10px #ff69b4; }
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&family=Zhi+Mang+Xing&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="falling-petals"></div>
+    <div class="guide-text" id="guide">点击任意位置接收祝福 ❤</div>
+    
+    <div class="card-container">
+        <div class="flower" id="flower">
+            <!-- 花瓣由JS生成 -->
+        </div>
+        <div class="message" id="message">
+            <h1>亲爱的妈妈</h1>
+            <p>✨ 妇女节快乐 ✨</p>
+            <p>您是我生命中最温暖的阳光</p>
+            <p>是岁月里永不凋零的花朵</p>
+	    <p>在这特别的日子里</p>
+	    <p>愿快乐常伴您左右</p>
+	    <br>
+	    <br>
+            <p>—— 永远爱您的宝贝：王雅婷、刘浩成</p>
+        </div>
+    </div>
+
+    <script>
+        // 生成花瓣
+        const flower = document.getElementById('flower');
+        const petalCount = 16;
+        
+        for(let i = 0; i < petalCount; i++) {
+            const petal = document.createElement('div');
+            petal.className = 'petal';
+            petal.style.cssText = `
+                --rot: ${(i * 360/petalCount)}deg;
+                background: ${i%2 ? '#fff' : '#fff0f5'};
+                filter: hue-rotate(${i*10}deg);
+            `;
+            flower.appendChild(petal);
+        }
+
+        // 引导提示
+        const guide = document.getElementById('guide');
+        setTimeout(() => {
+            guide.style.opacity = 1;
+        }, 1000);
+
+        // 全局点击监听
+        let isOpen = false;
+        document.addEventListener('click', () => {
+            if(!isOpen) {
+                guide.style.opacity = 0;
+                flower.classList.add('bloom');
+                document.getElementById('message').classList.add('show');
+                createPetals();
+                isOpen = true;
+                
+                // 添加心跳动画
+                flower.style.animation = 'none';
+                void flower.offsetWidth;
+                flower.style.animation = 'float 2s ease-in-out infinite';
+            }
+        });
+
+        // 创建飘落效果
+        function createPetals() {
+            const container = document.querySelector('.falling-petals');
+            const emojis = ['🌸', '🌺', '🌷', '💮', '🌼'];
+            
+            for(let i = 0; i < 25; i++) {
+                const petal = document.createElement('span');
+                petal.innerHTML = emojis[Math.floor(Math.random()*emojis.length)];
+                petal.style.left = Math.random() * 100 + 'vw';
+                petal.style.animationDuration = Math.random() * 3 + 2 + 's';
+                petal.style.animationDelay = Math.random() * 2 + 's';
+                petal.style.fontSize = Math.random() * 25 + 15 + 'px';
+                petal.style.transform = `rotate(${Math.random()*360}deg)`;
+                container.appendChild(petal);
+            }
+        }
+    </script>
+</body>
+</html>
