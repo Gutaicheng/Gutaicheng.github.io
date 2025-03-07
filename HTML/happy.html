@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>母亲节快乐</title>
+    <style>
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+            font-family: '楷体', cursive;
+        }
+
+        .card {
+            width: 90vw;
+            height: 130vw;  /* 保持4:5比例 */
+            max-width: 400px;
+            max-height: 500px;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: all 1s;
+            cursor: pointer;
+            margin: 20px;
+        }
+
+        /* 移动端优化 */
+        @media (max-width: 480px) {
+            .card {
+                width: 95vw;
+                height: 135vw;
+            }
+            
+            h1 {
+                font-size: 1.5em;
+                margin: 10px 0;
+            }
+            
+            .message {
+                font-size: 16px;
+                padding: 10px;
+            }
+            
+            .heart {
+                font-size: 40px;
+            }
+        }
+
+        /* 桌面端样式 */
+        @media (min-width: 768px) {
+            .card:hover {
+                transform: scale(1.05);
+            }
+        }
+
+        .card.flipped {
+            transform: rotateY(180deg);
+        }
+
+        .front, .back {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            backface-visibility: hidden;
+            border-radius: 15px;
+            padding: 15px;
+            box-sizing: border-box;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .front {
+            background: url('http://img.sccnn.com/bimg/341/02598.jpg') center/cover;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+        }
+
+        .back {
+            background: #fff;
+            transform: rotateY(180deg);
+            overflow: hidden;
+            padding: 20px;
+        }
+
+        .heart {
+            font-size: 50px;
+            animation: float 2s ease-in-out infinite;
+        }
+
+        h1 {
+            margin: 15px 0;
+            text-align: center;
+            font-size: 2em;
+        }
+
+        .message {
+            font-size: 18px;
+            line-height: 1.6;
+            text-align: justify;
+        }
+
+        /* 触摸优化 */
+        @media (hover: none) {
+            .card {
+                cursor: default;
+            }
+        }
+
+        .petals {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+        }
+
+        .petal {
+            position: absolute;
+            font-size: 24px;
+            opacity: 0.8;
+            animation: fall linear forwards;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        @keyframes fall {
+            to {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="card" onclick="flipCard()">
+        <div class="front">
+            <div class="heart">❤️</div>
+            <h1>点击打开贺卡</h1>
+        </div>
+        <div class="back">
+            <div class="petals" id="petals"></div>
+            <h1>亲爱的妈妈：</h1>
+            <div class="message">
+                <p>妇女节快乐！🌷</p>
+                <p>感谢您无私的付出与关爱，</p>
+                <p>您是我生命中最温暖的阳光，</p>
+                <p>最坚强的后盾，</p>
+                <p>愿您永远健康美丽，</p>
+                <p>幸福安康！💐</p>
+                <p style="text-align: right;">—— 爱您的孩子：王雅婷 ❤️</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function flipCard() {
+            document.querySelector('.card').classList.toggle('flipped');
+            createPetals();
+        }
+
+        function createPetals() {
+            const petalsContainer = document.getElementById('petals');
+            const emojis = ['🌸', '🌺', '🌷', '💮', '🏵️'];
+            
+            for (let i = 0; i < 30; i++) {
+                const petal = document.createElement('div');
+                petal.className = 'petal';
+                petal.innerHTML = emojis[Math.floor(Math.random() * emojis.length)];
+                
+                // 随机位置和动画
+                petal.style.left = Math.random() * 100 + '%';
+                petal.style.animationDuration = Math.random() * 3 + 2 + 's';
+                petal.style.animationDelay = Math.random() * 2 + 's';
+                
+                petalsContainer.appendChild(petal);
+                
+                // 自动移除花瓣元素
+                setTimeout(() => {
+                    petal.remove();
+                }, 5000);
+            }
+        }
+    </script>
+</body>
+</html>
