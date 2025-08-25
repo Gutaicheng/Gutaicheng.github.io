@@ -16,16 +16,16 @@
   <meta name="author" content="GuTaicheng">
   <meta name="keywords" content="博客, 学习, Java">
   
-    <meta name="description" content="1. 两数之和 - 力扣（LeetCode） 核心：以空间换时间 123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051from typing import Listclass Solution(object):    &quot;&quot;&quot;">
+    <meta name="description" content="9. 回文数 - 力扣（LeetCode） 学到的  双指针遍历字符串 Python反转字符串的快捷写法 纯数论遍历与反转整型数字  1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465class So">
 <meta property="og:type" content="article">
-<meta property="og:title" content="力扣-1-两数之和">
-<meta property="og:url" content="https://blog.gutaicheng.top/2025/08/24/%E5%8A%9B%E6%89%A3-1-%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C/index.html">
+<meta property="og:title" content="力扣-9-回文数">
+<meta property="og:url" content="https://blog.gutaicheng.top/2025/08/25/%E5%8A%9B%E6%89%A3-9-%E5%9B%9E%E6%96%87%E6%95%B0/index.html">
 <meta property="og:site_name" content="GuTaicheng&#39;s Blog">
-<meta property="og:description" content="1. 两数之和 - 力扣（LeetCode） 核心：以空间换时间 123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051from typing import Listclass Solution(object):    &quot;&quot;&quot;">
+<meta property="og:description" content="9. 回文数 - 力扣（LeetCode） 学到的  双指针遍历字符串 Python反转字符串的快捷写法 纯数论遍历与反转整型数字  1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465class So">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://gitee.com/Gu-taicheng/image/raw/master/img/image-20250825004145277.png">
-<meta property="article:published_time" content="2025-08-24T15:45:00.000Z">
-<meta property="article:modified_time" content="2025-08-24T16:42:19.607Z">
+<meta property="article:published_time" content="2025-08-25T15:45:00.000Z">
+<meta property="article:modified_time" content="2025-08-25T17:47:25.088Z">
 <meta property="article:author" content="GuTaicheng">
 <meta property="article:tag" content="LeetCode">
 <meta name="twitter:card" content="summary_large_image">
@@ -35,7 +35,7 @@
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>力扣-1-两数之和 - GuTaicheng&#39;s Blog</title>
+  <title>力扣-9-回文数 - GuTaicheng&#39;s Blog</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -223,7 +223,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="力扣-1-两数之和"></span>
+            <span id="subtitle" data-typed-text="力扣-9-回文数"></span>
           
         </div>
 
@@ -234,8 +234,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2025-08-24 23:45" pubdate>
-          2025年8月24日 晚上
+        <time datetime="2025-08-25 23:45" pubdate>
+          2025年8月25日 晚上
         </time>
       </span>
     
@@ -303,7 +303,7 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">力扣-1-两数之和</h1>
+            <h1 style="display: none">力扣-9-回文数</h1>
             
             
               <div class="markdown-body">
@@ -312,9 +312,14 @@
 
 
 
-<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/two-sum/description/">1. 两数之和 - 力扣（LeetCode）</a></p>
-<p>核心：以空间换时间</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> typing <span class="hljs-keyword">import</span> <span class="hljs-type">List</span><br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>(<span class="hljs-title class_ inherited__">object</span>):<br>    <span class="hljs-string">&quot;&quot;&quot;</span><br><span class="hljs-string">     类似双重循环的暴力解</span><br><span class="hljs-string">     但是内部循环切除了前面已经遍历过的</span><br><span class="hljs-string">     比如说 目标为 7，前面两个数字为 4，2，……</span><br><span class="hljs-string">     第一次循环已经判断 4 + 2 != 7了</span><br><span class="hljs-string">     第二次从 2 开始遍历，就不用从头开始，再计算一遍 2 + 4了</span><br><span class="hljs-string">    &quot;&quot;&quot;</span><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">twoSum1</span>(<span class="hljs-params">self, nums, target</span>):<br>        <span class="hljs-comment"># 遍历列表</span><br>        <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-built_in">len</span>(nums)):<br>            <span class="hljs-comment"># 计算需要找到的下一个目标数字</span><br>            res = target-nums[i]<br>                <span class="hljs-comment"># 遍历剩下的元素，查找是否存在该数字</span><br>            <span class="hljs-keyword">if</span> res <span class="hljs-keyword">in</span> nums[i+<span class="hljs-number">1</span>:]:<br>                <span class="hljs-comment"># 若存在，返回答案。这里由于是两数之和，可采用.index()方法</span><br>                <span class="hljs-comment"># 获得目标元素在nums[i+1:]这个子数组中的索引后，还需加上i+1才是该元素在nums中的索引</span><br>                <span class="hljs-keyword">return</span> [i, nums[i+<span class="hljs-number">1</span>:].index(res)+i+<span class="hljs-number">1</span>]<br>                <span class="hljs-comment"># i是当前元素坐标</span><br>                <span class="hljs-comment"># nums[i+1:].index(res)是从当前元素往后的切片生成的新数组中，res的索引，从0开始</span><br>                <span class="hljs-comment"># 最后得到的应该是在原来数组中的索引，所以要 +i+1</span><br>    <span class="hljs-string">&quot;&quot;&quot;</span><br><span class="hljs-string">     时间复杂度为O(n)的解</span><br><span class="hljs-string">     我的一开始的疑惑是，在字典中用 in 搜索，不和list中一样吗</span><br><span class="hljs-string">     但其实字典采用的是Hash结构，在存储键值对 k-v时，会对k进行hash散列得到一个内存地址，将v存入</span><br><span class="hljs-string">     使用 in 搜索时，也是对关键字进行hash散列，直接去得到的地址中取值，若不为空则找到</span><br><span class="hljs-string">     故此时间复杂度为O(1)</span><br><span class="hljs-string">    &quot;&quot;&quot;</span><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">twoSum2</span>(<span class="hljs-params">self, nums: <span class="hljs-type">List</span>[<span class="hljs-built_in">int</span>], target: <span class="hljs-built_in">int</span></span>) -&gt; <span class="hljs-type">List</span>[<span class="hljs-built_in">int</span>]:<br>        d = &#123;&#125;<br>        <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-built_in">len</span>(nums)):<br>            c = target - nums[i]<br>            <span class="hljs-keyword">if</span> c <span class="hljs-keyword">in</span> d: <span class="hljs-keyword">return</span> [d[c], i]<br>            d[nums[i]] = i<br>        <span class="hljs-keyword">return</span> []<br><br>    <span class="hljs-string">&quot;&quot;&quot;</span><br><span class="hljs-string">    稍微简化了第二段代码</span><br><span class="hljs-string">    使用了enumerate(nums)</span><br><span class="hljs-string">    enumerate 是 Python 中一个非常有用的内置函数，</span><br><span class="hljs-string">    它用于在遍历可迭代对象（如列表、元组、字符串等）时同时获取元素的索引和值。</span><br><span class="hljs-string">    &quot;&quot;&quot;</span><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">twoSum3</span>(<span class="hljs-params">self, nums: <span class="hljs-type">List</span>[<span class="hljs-built_in">int</span>], target: <span class="hljs-built_in">int</span></span>) -&gt; <span class="hljs-type">List</span>[<span class="hljs-built_in">int</span>]:<br>        d = &#123;&#125;<br>        <span class="hljs-keyword">for</span> index, num <span class="hljs-keyword">in</span> <span class="hljs-built_in">enumerate</span>(nums):<br>            c = target - num<br>            <span class="hljs-keyword">if</span> c <span class="hljs-keyword">in</span> d: <span class="hljs-keyword">return</span> [d[num], index]<br>            d[num] = index<br>        <span class="hljs-keyword">return</span> []<br></code></pre></td></tr></table></figure>
+<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/palindrome-number/description/">9. 回文数 - 力扣（LeetCode）</a></p>
+<p>学到的</p>
+<ul>
+<li>双指针遍历字符串</li>
+<li>Python反转字符串的快捷写法</li>
+<li>纯数论遍历与反转整型数字</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-string">&quot;&quot;&quot;</span><br><span class="hljs-string">    类似双指针</span><br><span class="hljs-string">    左右以此对比</span><br><span class="hljs-string">    直到右指针索引比左指针小</span><br><span class="hljs-string">    &quot;&quot;&quot;</span><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">isPalindrome1</span>(<span class="hljs-params">self, x: <span class="hljs-built_in">int</span></span>) -&gt; <span class="hljs-built_in">bool</span>:<br>        s = <span class="hljs-built_in">str</span>(x)<br>        <span class="hljs-built_in">print</span>(s)<br>        i , j = <span class="hljs-number">0</span>, <span class="hljs-built_in">len</span>(s) - <span class="hljs-number">1</span><br>        <span class="hljs-keyword">while</span> i &lt;= j:<br>            <span class="hljs-keyword">if</span> s[i] != s[j]: <span class="hljs-keyword">return</span> <span class="hljs-literal">False</span><br>            i += <span class="hljs-number">1</span><br>            j -= <span class="hljs-number">1</span><br>        <span class="hljs-keyword">return</span> <span class="hljs-literal">True</span><br><br>    <span class="hljs-string">&quot;&quot;&quot;</span><br><span class="hljs-string">    Python中直接反转字符串</span><br><span class="hljs-string">    &quot;&quot;&quot;</span><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">isPalindrome2</span>(<span class="hljs-params">self, x: <span class="hljs-built_in">int</span></span>) -&gt; <span class="hljs-built_in">bool</span>:<br>        <span class="hljs-comment"># 从头到尾，步长-1</span><br>        <span class="hljs-keyword">return</span> <span class="hljs-built_in">str</span>(x) == <span class="hljs-built_in">str</span>(x)[::-<span class="hljs-number">1</span>]<br><br>    <span class="hljs-string">&quot;&quot;&quot;</span><br><span class="hljs-string">    纯数学解法</span><br><span class="hljs-string">    1.掌握遍历 int 类型，即先x mod 10，再x / 10，直至 x = 0</span><br><span class="hljs-string">    2.反转整数，rev初始等于0，rev = rev*10 + x mod 10</span><br><span class="hljs-string">    &quot;&quot;&quot;</span><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">isPalindrome3</span>(<span class="hljs-params">self, x: <span class="hljs-built_in">int</span></span>) -&gt; <span class="hljs-built_in">bool</span>:<br>        <span class="hljs-comment"># 负数肯定不是</span><br>        <span class="hljs-keyword">if</span> x &lt; <span class="hljs-number">0</span>: <span class="hljs-keyword">return</span> <span class="hljs-literal">False</span><br>        <span class="hljs-comment"># 0~9 都是</span><br>        <span class="hljs-keyword">elif</span> x &lt; <span class="hljs-number">10</span>: <span class="hljs-keyword">return</span> <span class="hljs-literal">True</span><br>        <span class="hljs-keyword">else</span>:<br>            <span class="hljs-comment"># 末尾为0 肯定也不是</span><br>            <span class="hljs-keyword">if</span> x % <span class="hljs-number">10</span> == <span class="hljs-number">0</span>: <span class="hljs-keyword">return</span> <span class="hljs-literal">False</span><br>            <span class="hljs-keyword">else</span>:<br>                rev = <span class="hljs-number">0</span><br>                <span class="hljs-keyword">while</span> x != <span class="hljs-number">0</span>:<br>                    <span class="hljs-comment"># 逐个反转</span><br>                    rev = rev * <span class="hljs-number">10</span> + x % <span class="hljs-number">10</span><br>                    <span class="hljs-comment"># 除法取整数</span><br>                    x //= <span class="hljs-number">10</span><br>                    <span class="hljs-comment"># 奇数位数的回文数</span><br>                    <span class="hljs-keyword">if</span> rev == x // <span class="hljs-number">10</span>: <span class="hljs-keyword">return</span> <span class="hljs-literal">True</span><br>                    <span class="hljs-comment"># 偶数位数的回文数</span><br>                    <span class="hljs-keyword">if</span> rev == x: <span class="hljs-keyword">return</span> <span class="hljs-literal">True</span><br>                <span class="hljs-keyword">return</span> <span class="hljs-literal">False</span><br><br>    <span class="hljs-string">&quot;&quot;&quot;</span><br><span class="hljs-string">    对 isPalindrome3 的优化</span><br><span class="hljs-string">    &quot;&quot;&quot;</span><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">isPalindrome4</span>(<span class="hljs-params">self, x: <span class="hljs-built_in">int</span></span>) -&gt; <span class="hljs-built_in">bool</span>:<br>        <span class="hljs-comment"># 负数、正数且尾数为 0 的不是</span><br>        <span class="hljs-keyword">if</span> x &lt; <span class="hljs-number">0</span> <span class="hljs-keyword">or</span> x &gt; <span class="hljs-number">0</span> <span class="hljs-keyword">and</span> x % <span class="hljs-number">10</span> == <span class="hljs-number">0</span>: <span class="hljs-keyword">return</span> <span class="hljs-literal">False</span><br>        rev = <span class="hljs-number">0</span><br>        <span class="hljs-comment"># 当前已反转的 小于 当前再去一次尾数的</span><br>        <span class="hljs-comment"># 奇数位时: 121, 1 = 12 // 10, 退出循环，满足 rev == x // 10</span><br>        <span class="hljs-comment"># 特别地, 各位数时：8, 8 &gt; 8 // 10, 退出循环，满足 rev == x // 10</span><br>        <span class="hljs-comment"># 偶数位时：1221, 12 &gt; 12 // 10, 退出循环，满足 rev == x</span><br>        <span class="hljs-comment"># 若不是回文数： 则都不满足</span><br>        <span class="hljs-keyword">while</span> rev &lt; x // <span class="hljs-number">10</span>:<br>            rev = rev * <span class="hljs-number">10</span> + x % <span class="hljs-number">10</span><br>            x //= <span class="hljs-number">10</span><br>        <span class="hljs-keyword">return</span> rev == x <span class="hljs-keyword">or</span> rev == x // <span class="hljs-number">10</span><br></code></pre></td></tr></table></figure>
                 
               </div>
             
@@ -366,8 +371,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>力扣-1-两数之和</div>
-      <div>https://blog.gutaicheng.top/2025/08/24/力扣-1-两数之和/</div>
+      <div>力扣-9-回文数</div>
+      <div>https://blog.gutaicheng.top/2025/08/25/力扣-9-回文数/</div>
     </div>
     <div class="license-meta">
       
@@ -379,7 +384,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2025年8月24日</div>
+          <div>2025年8月25日</div>
         </div>
       
       
@@ -409,18 +414,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2025/08/25/%E5%8A%9B%E6%89%A3-9-%E5%9B%9E%E6%96%87%E6%95%B0/" title="力扣-9-回文数">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">力扣-9-回文数</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2025/06/23/%E5%9B%9E%E9%A6%96%E8%BF%99%E4%B8%A4%E5%B9%B4%EF%BC%88%E5%8F%AF%E7%88%B1%E5%A5%B3%E4%BA%BA%E5%92%8C%E7%AC%A8%E8%9B%8B%E7%94%B7%E4%BA%BA%EF%BC%89/" title="回首这两年（可爱女人和笨蛋男人）">
-                        <span class="hidden-mobile">回首这两年（可爱女人和笨蛋男人）</span>
+                      <a href="/2025/08/24/%E5%8A%9B%E6%89%A3-1-%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C/" title="力扣-1-两数之和">
+                        <span class="hidden-mobile">力扣-1-两数之和</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
