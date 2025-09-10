@@ -4,6 +4,58 @@
   
   
   <entry>
+    <title>Pytorch环境安装教程</title>
+    <link href="/2025/09/10/Pytorch%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/"/>
+    <url>/2025/09/10/Pytorch%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/</url>
+    
+    <content type="html"><![CDATA[<meta name="referrer" content="no-referrer" /><p>本博客旨在记录第一次安装环境时的注意事项，方便下次所需时快速配置好环境</p><h1 id="工具名词解释"><a href="#工具名词解释" class="headerlink" title="工具名词解释"></a>工具名词解释</h1><h2 id="Conda、Anaconda、Miniconda"><a href="#Conda、Anaconda、Miniconda" class="headerlink" title="Conda、Anaconda、Miniconda"></a>Conda、Anaconda、Miniconda</h2><ul><li><strong>conda</strong> 是一个<strong>包和环境管理器</strong></li><li><strong>Anaconda：</strong> 是一个庞大的工具包，它不仅包含了 Python 和 <code>conda</code> 这个包管理器，还预装了上百个科学计算和数据分析中常用的库，比如 NumPy、Pandas、Matplotlib 等。它的优点是<strong>“开箱即用”</strong>，你装好后，大部分常用的库都已准备就绪，非常方便。但缺点是体积庞大，占用空间多。</li><li><strong>Miniconda：</strong> 是 Anaconda 的<strong>精简版</strong>。它只包含最基础的 Python 和 <code>conda</code> 包管理器，没有预装任何额外的库。优点是<strong>体积小巧</strong>。你需要什么库，就用 <code>conda</code> 命令去安装什么，这让你对环境有完全的掌控权。</li><li>当你安装了 <strong>Anaconda</strong> 或 <strong>Miniconda</strong> 后，你就拥有了 <strong>conda</strong> 这个命令行工具</li></ul><h2 id="Pytorch"><a href="#Pytorch" class="headerlink" title="Pytorch"></a>Pytorch</h2><ul><li><strong>PyTorch</strong> 确实是 Python 的一个库，它的核心包就叫做 <code>torch</code>。当我们说“安装 PyTorch”时，实际上就是在安装这个 <code>torch</code> 库以及一些相关的依赖包。</li><li>当然也有C++版本和Java版本的torch库</li><li>由于Anaconda 作为一个大型的数据科学工具箱，它确实预装了上百个常用的库，但主要集中在<strong>通用数据处理和分析</strong>领域，而像 PyTorch、TensorFlow 这样的深度学习库，它们的体积非常庞大，特别是当你需要支持 GPU 加速时，还需要额外安装 CUDA 和 cuDNN 等库，整个安装包会变得非常大。如果 Anaconda 把所有可能的深度学习框架都预装进去，安装包的大小就会变得难以管理，并且会占用大量的硬盘空间，而许多用户可能根本不需要这些库。</li></ul><h2 id="CUDA"><a href="#CUDA" class="headerlink" title="CUDA"></a>CUDA</h2><ul><li><strong>CUDA</strong> 是由 NVIDIA 公司推出的一种<strong>并行计算平台和编程模型</strong>。简单来说，它是一种能让你利用 NVIDIA 显卡（GPU）的强大计算能力来加速计算的技术。</li><li>简单说：一种技术，能让你的 PyTorch 利用 NVIDIA 显卡进行高速计算。</li><li>但仅限于<strong>NVIDIA</strong> 显卡</li></ul><h1 id="安装（请依次安装）"><a href="#安装（请依次安装）" class="headerlink" title="安装（请依次安装）"></a>安装（请依次安装）</h1><h2 id="CUDA安装"><a href="#CUDA安装" class="headerlink" title="CUDA安装"></a>CUDA安装</h2><ul><li>驱动安装，一般默认都有（下载往后看）</li></ul><p>​打开任务管理器，点击性能，如果能显示显卡名称即可</p><p><img src="https://gitee.com/Gu-taicheng/image/raw/master/img/image-20250910114739028.png" alt="image-20250910114739028"></p><ul><li><p>官网下载CUDA（maybe需要魔法）<a href="https://developer.nvidia.com/cuda-downloads">CUDA Toolkit 13.0 Update 1 Downloads | NVIDIA Developer</a></p></li><li><p>以此选择需要的版本</p><p><img src="https://gitee.com/Gu-taicheng/image/raw/master/img/image-20250910115039797.png" alt="image-20250910115039797"></p></li><li><p>下载完成后双击安装，一路默认next即可</p></li><li><p>安装完成后，打开cmd，输入nvidia-smi，查看是否安装成功（注意看版本和显卡型号）</p><p><img src="https://gitee.com/Gu-taicheng/image/raw/master/img/image-20250910115419736.png" alt="image-20250910115419736"></p></li></ul><h2 id="Miniconda安装"><a href="#Miniconda安装" class="headerlink" title="Miniconda安装"></a>Miniconda安装</h2><ul><li><p>打开官网的历史版本，<a href="https://repo.anaconda.com/miniconda/">Index of &#x2F;miniconda</a></p></li><li><p>打开Pytorch的官网<a href="https://pytorch.org/get-started/locally/">Pytorch Get Started</a>查看当前最新的Pytorch需要的Python版本是多少</p><p><img src="https://gitee.com/Gu-taicheng/image/raw/master/img/image-20250910120244436.png" alt="image-20250910120244436"></p></li><li><p>找到需要基础环境（或者说初始环境）自带的Python版本，和自己一开始在本地Python不需要一致，因为本地的环境和conda的环境是独立的。（注意选择操作系统的版本）</p><p><img src="https://gitee.com/Gu-taicheng/image/raw/master/img/image-20250910120326624.png" alt="image-20250910120326624"></p></li><li><p>点击下载后一路默认next安装，默认安装路径为 <strong>C:\ProgramData\miniconda3</strong></p></li><li><p>安装完成后，点击任务栏搜索 <strong>ancconda</strong>，选择带管理员的<strong>shell</strong>打开，输入 <strong>python –version</strong> 查看版本是否正确</p><p><img src="https://gitee.com/Gu-taicheng/image/raw/master/img/image-20250910120739999.png" alt="image-20250910120739999"></p><p><img src="https://gitee.com/Gu-taicheng/image/raw/master/img/image-20250910120916184.png" alt="image-20250910120916184"></p></li></ul><blockquote><p>[!IMPORTANT]</p><p>至于conda的具体操作和使用，之后另在一篇博客上记录</p></blockquote><h2 id="Pytorch安装"><a href="#Pytorch安装" class="headerlink" title="Pytorch安装"></a>Pytorch安装</h2><ul><li><p>打开官网<a href="https://pytorch.org/get-started/locally/">Pytorch Get Started</a>，如图依次选择</p></li><li><p>注意：CUDA版本可能对不上，但是选择大版本一致的即可，越接近越好</p><p><img src="https://gitee.com/Gu-taicheng/image/raw/master/img/image-20250910121113100.png" alt="image-20250910121113100"></p></li><li><p>复制好命令后，粘贴至刚刚打开的<strong>Anaconda Shell</strong>，如果在cmd里粘贴，就会安装到本地的python环境中</p><p>等待下载完成，直至看到Successful</p><p>![pytorch successs](<a href="https://gitee.com/Gu-taicheng/image/raw/master/img/pytorch">https://gitee.com/Gu-taicheng/image/raw/master/img/pytorch</a> successs.png)</p></li><li><p>测试是否完成，如图依次在当前窗口中输入：</p><p><img src="https://gitee.com/Gu-taicheng/image/raw/master/img/image-20250910121532882.png" alt="image-20250910121532882"></p></li></ul>]]></content>
+    
+    
+    <categories>
+      
+      <category>深度学习</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Pytorch - 深度学习</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>力扣-13-罗马数字转整数</title>
+    <link href="/2025/08/27/%E5%8A%9B%E6%89%A3-13-%E7%BD%97%E9%A9%AC%E6%95%B0%E5%AD%97%E8%BD%AC%E6%95%B4%E6%95%B0/"/>
+    <url>/2025/08/27/%E5%8A%9B%E6%89%A3-13-%E7%BD%97%E9%A9%AC%E6%95%B0%E5%AD%97%E8%BD%AC%E6%95%B4%E6%95%B0/</url>
+    
+    <content type="html"><![CDATA[<meta name="referrer" content="no-referrer" /><p><a href="https://leetcode.cn/problems/roman-to-integer/description/">13. 罗马数字转整数 - 力扣（LeetCode）</a></p><ul><li>多考虑数论解法，往往会简便一些步骤</li></ul><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-comment"># 自己初步解，通过</span><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">romanToInt1</span>(<span class="hljs-params">self, s: <span class="hljs-built_in">str</span></span>) -&gt; <span class="hljs-built_in">int</span>:<br>        rm = [<span class="hljs-string">&quot;I&quot;</span>, <span class="hljs-string">&quot;V&quot;</span>, <span class="hljs-string">&quot;X&quot;</span>, <span class="hljs-string">&quot;L&quot;</span>, <span class="hljs-string">&quot;C&quot;</span>, <span class="hljs-string">&quot;D&quot;</span>, <span class="hljs-string">&quot;M&quot;</span>]<br>        num = [<span class="hljs-number">1</span>, <span class="hljs-number">5</span>, <span class="hljs-number">10</span>, <span class="hljs-number">50</span>, <span class="hljs-number">100</span>, <span class="hljs-number">500</span>, <span class="hljs-number">1000</span>]<br>        result = <span class="hljs-number">0</span><br>        i = <span class="hljs-number">0</span><br>        <span class="hljs-keyword">while</span> i &lt; <span class="hljs-built_in">len</span>(s):<br>            <span class="hljs-comment"># i != len(s) - 1 是判断 and 后面的 i+1 是否会越界</span><br>            <span class="hljs-comment"># rm.index(s[i]) &lt; rm.index(s[i + 1]) 判断下一位罗马数是否比当前的罗马数大</span><br>            <span class="hljs-comment"># 若大 则需要特殊规则取两者的差值，并且指针指向下一位</span><br>            <span class="hljs-comment"># 若否 则直接取当前的罗马数累积</span><br>            <span class="hljs-keyword">if</span> i != <span class="hljs-built_in">len</span>(s) - <span class="hljs-number">1</span> <span class="hljs-keyword">and</span> rm.index(s[i]) &lt; rm.index(s[i + <span class="hljs-number">1</span>]):<br>                result += num[rm.index(s[i + <span class="hljs-number">1</span>])] - num[rm.index(s[i])]<br>                i += <span class="hljs-number">1</span><br>            <span class="hljs-keyword">else</span>:<br>                result += num[rm.index(s[i])]<br>            i += <span class="hljs-number">1</span><br>        <span class="hljs-keyword">return</span> result<br><br>    <span class="hljs-comment"># 官方解</span><br>    <span class="hljs-comment"># 当出现特殊情况时，前一个相当于取 负值</span><br>    <span class="hljs-comment"># 与自己写的类似，但是不用在特殊情况时，移动两次指针</span><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">romanToInt2</span>(<span class="hljs-params">self, s: <span class="hljs-built_in">str</span></span>) -&gt; <span class="hljs-built_in">int</span>:<br>        rm = &#123;<span class="hljs-string">&quot;I&quot;</span> : <span class="hljs-number">1</span>, <span class="hljs-string">&quot;V&quot;</span> : <span class="hljs-number">5</span>, <span class="hljs-string">&quot;X&quot;</span> : <span class="hljs-number">10</span> , <span class="hljs-string">&quot;L&quot;</span> : <span class="hljs-number">50</span> , <span class="hljs-string">&quot;C&quot;</span> : <span class="hljs-number">100</span> , <span class="hljs-string">&quot;D&quot;</span> : <span class="hljs-number">500</span> ,<span class="hljs-string">&quot;M&quot;</span> : <span class="hljs-number">1000</span> &#125;<br>        result = <span class="hljs-number">0</span><br>        <span class="hljs-keyword">for</span> i, c <span class="hljs-keyword">in</span> <span class="hljs-built_in">enumerate</span>(s):<br>            <span class="hljs-keyword">if</span> i &lt; <span class="hljs-built_in">len</span>(s) - <span class="hljs-number">1</span> <span class="hljs-keyword">and</span> rm[c] &lt; rm[s[i + <span class="hljs-number">1</span>]]:<br>                result -= rm[c]<br>            <span class="hljs-keyword">else</span>:<br>                result += rm[c]<br>        <span class="hljs-keyword">return</span> result<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>算法与数据结构</category>
+      
+      <category>LeetCode</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>LeetCode</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>力扣-9-回文数</title>
     <link href="/2025/08/25/%E5%8A%9B%E6%89%A3-9-%E5%9B%9E%E6%96%87%E6%95%B0/"/>
     <url>/2025/08/25/%E5%8A%9B%E6%89%A3-9-%E5%9B%9E%E6%96%87%E6%95%B0/</url>

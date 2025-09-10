@@ -16,16 +16,16 @@
   <meta name="author" content="GuTaicheng">
   <meta name="keywords" content="博客, 学习, Java">
   
-    <meta name="description" content="9. 回文数 - 力扣（LeetCode） 学到的  双指针遍历字符串 Python反转字符串的快捷写法 纯数论遍历与反转整型数字  1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465class So">
+    <meta name="description" content="13. 罗马数字转整数 - 力扣（LeetCode）  多考虑数论解法，往往会简便一些步骤  1234567891011121314151617181920212223242526272829303132class Solution:    # 自己初步解，通过    def romanToInt1(self, s: str) -&gt; int:        rm &#x3D; [&quot;I">
 <meta property="og:type" content="article">
-<meta property="og:title" content="力扣-9-回文数">
-<meta property="og:url" content="https://blog.gutaicheng.top/2025/08/25/%E5%8A%9B%E6%89%A3-9-%E5%9B%9E%E6%96%87%E6%95%B0/index.html">
+<meta property="og:title" content="力扣-13-罗马数字转整数">
+<meta property="og:url" content="https://blog.gutaicheng.top/2025/08/27/%E5%8A%9B%E6%89%A3-13-%E7%BD%97%E9%A9%AC%E6%95%B0%E5%AD%97%E8%BD%AC%E6%95%B4%E6%95%B0/index.html">
 <meta property="og:site_name" content="GuTaicheng&#39;s Blog">
-<meta property="og:description" content="9. 回文数 - 力扣（LeetCode） 学到的  双指针遍历字符串 Python反转字符串的快捷写法 纯数论遍历与反转整型数字  1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465class So">
+<meta property="og:description" content="13. 罗马数字转整数 - 力扣（LeetCode）  多考虑数论解法，往往会简便一些步骤  1234567891011121314151617181920212223242526272829303132class Solution:    # 自己初步解，通过    def romanToInt1(self, s: str) -&gt; int:        rm &#x3D; [&quot;I">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://gitee.com/Gu-taicheng/image/raw/master/img/image-20250825004145277.png">
-<meta property="article:published_time" content="2025-08-25T15:24:00.000Z">
-<meta property="article:modified_time" content="2025-08-27T17:16:00.393Z">
+<meta property="article:published_time" content="2025-08-27T15:37:00.000Z">
+<meta property="article:modified_time" content="2025-08-27T17:16:06.044Z">
 <meta property="article:author" content="GuTaicheng">
 <meta property="article:tag" content="LeetCode">
 <meta name="twitter:card" content="summary_large_image">
@@ -35,7 +35,7 @@
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>力扣-9-回文数 - GuTaicheng&#39;s Blog</title>
+  <title>力扣-13-罗马数字转整数 - GuTaicheng&#39;s Blog</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -223,7 +223,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="力扣-9-回文数"></span>
+            <span id="subtitle" data-typed-text="力扣-13-罗马数字转整数"></span>
           
         </div>
 
@@ -234,8 +234,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2025-08-25 23:24" pubdate>
-          2025年8月25日 晚上
+        <time datetime="2025-08-27 23:37" pubdate>
+          2025年8月27日 晚上
         </time>
       </span>
     
@@ -246,7 +246,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.2k 字
+          915 字
         
       </span>
     
@@ -257,7 +257,7 @@
         
         
         
-          11 分钟
+          8 分钟
         
       </span>
     
@@ -303,7 +303,7 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">力扣-9-回文数</h1>
+            <h1 style="display: none">力扣-13-罗马数字转整数</h1>
             
             
               <div class="markdown-body">
@@ -312,14 +312,11 @@
 
 
 
-<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/palindrome-number/description/">9. 回文数 - 力扣（LeetCode）</a></p>
-<p>学到的</p>
+<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/roman-to-integer/description/">13. 罗马数字转整数 - 力扣（LeetCode）</a></p>
 <ul>
-<li>双指针遍历字符串</li>
-<li>Python反转字符串的快捷写法</li>
-<li>纯数论遍历与反转整型数字</li>
+<li>多考虑数论解法，往往会简便一些步骤</li>
 </ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-string">&quot;&quot;&quot;</span><br><span class="hljs-string">    类似双指针</span><br><span class="hljs-string">    左右以此对比</span><br><span class="hljs-string">    直到右指针索引比左指针小</span><br><span class="hljs-string">    &quot;&quot;&quot;</span><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">isPalindrome1</span>(<span class="hljs-params">self, x: <span class="hljs-built_in">int</span></span>) -&gt; <span class="hljs-built_in">bool</span>:<br>        s = <span class="hljs-built_in">str</span>(x)<br>        <span class="hljs-built_in">print</span>(s)<br>        i , j = <span class="hljs-number">0</span>, <span class="hljs-built_in">len</span>(s) - <span class="hljs-number">1</span><br>        <span class="hljs-keyword">while</span> i &lt;= j:<br>            <span class="hljs-keyword">if</span> s[i] != s[j]: <span class="hljs-keyword">return</span> <span class="hljs-literal">False</span><br>            i += <span class="hljs-number">1</span><br>            j -= <span class="hljs-number">1</span><br>        <span class="hljs-keyword">return</span> <span class="hljs-literal">True</span><br><br>    <span class="hljs-string">&quot;&quot;&quot;</span><br><span class="hljs-string">    Python中直接反转字符串</span><br><span class="hljs-string">    &quot;&quot;&quot;</span><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">isPalindrome2</span>(<span class="hljs-params">self, x: <span class="hljs-built_in">int</span></span>) -&gt; <span class="hljs-built_in">bool</span>:<br>        <span class="hljs-comment"># 从头到尾，步长-1</span><br>        <span class="hljs-keyword">return</span> <span class="hljs-built_in">str</span>(x) == <span class="hljs-built_in">str</span>(x)[::-<span class="hljs-number">1</span>]<br><br>    <span class="hljs-string">&quot;&quot;&quot;</span><br><span class="hljs-string">    纯数学解法</span><br><span class="hljs-string">    1.掌握遍历 int 类型，即先x mod 10，再x / 10，直至 x = 0</span><br><span class="hljs-string">    2.反转整数，rev初始等于0，rev = rev*10 + x mod 10</span><br><span class="hljs-string">    &quot;&quot;&quot;</span><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">isPalindrome3</span>(<span class="hljs-params">self, x: <span class="hljs-built_in">int</span></span>) -&gt; <span class="hljs-built_in">bool</span>:<br>        <span class="hljs-comment"># 负数肯定不是</span><br>        <span class="hljs-keyword">if</span> x &lt; <span class="hljs-number">0</span>: <span class="hljs-keyword">return</span> <span class="hljs-literal">False</span><br>        <span class="hljs-comment"># 0~9 都是</span><br>        <span class="hljs-keyword">elif</span> x &lt; <span class="hljs-number">10</span>: <span class="hljs-keyword">return</span> <span class="hljs-literal">True</span><br>        <span class="hljs-keyword">else</span>:<br>            <span class="hljs-comment"># 末尾为0 肯定也不是</span><br>            <span class="hljs-keyword">if</span> x % <span class="hljs-number">10</span> == <span class="hljs-number">0</span>: <span class="hljs-keyword">return</span> <span class="hljs-literal">False</span><br>            <span class="hljs-keyword">else</span>:<br>                rev = <span class="hljs-number">0</span><br>                <span class="hljs-keyword">while</span> x != <span class="hljs-number">0</span>:<br>                    <span class="hljs-comment"># 逐个反转</span><br>                    rev = rev * <span class="hljs-number">10</span> + x % <span class="hljs-number">10</span><br>                    <span class="hljs-comment"># 除法取整数</span><br>                    x //= <span class="hljs-number">10</span><br>                    <span class="hljs-comment"># 奇数位数的回文数</span><br>                    <span class="hljs-keyword">if</span> rev == x // <span class="hljs-number">10</span>: <span class="hljs-keyword">return</span> <span class="hljs-literal">True</span><br>                    <span class="hljs-comment"># 偶数位数的回文数</span><br>                    <span class="hljs-keyword">if</span> rev == x: <span class="hljs-keyword">return</span> <span class="hljs-literal">True</span><br>                <span class="hljs-keyword">return</span> <span class="hljs-literal">False</span><br><br>    <span class="hljs-string">&quot;&quot;&quot;</span><br><span class="hljs-string">    对 isPalindrome3 的优化</span><br><span class="hljs-string">    &quot;&quot;&quot;</span><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">isPalindrome4</span>(<span class="hljs-params">self, x: <span class="hljs-built_in">int</span></span>) -&gt; <span class="hljs-built_in">bool</span>:<br>        <span class="hljs-comment"># 负数、正数且尾数为 0 的不是</span><br>        <span class="hljs-keyword">if</span> x &lt; <span class="hljs-number">0</span> <span class="hljs-keyword">or</span> x &gt; <span class="hljs-number">0</span> <span class="hljs-keyword">and</span> x % <span class="hljs-number">10</span> == <span class="hljs-number">0</span>: <span class="hljs-keyword">return</span> <span class="hljs-literal">False</span><br>        rev = <span class="hljs-number">0</span><br>        <span class="hljs-comment"># 当前已反转的 小于 当前再去一次尾数的</span><br>        <span class="hljs-comment"># 奇数位时: 121, 1 = 12 // 10, 退出循环，满足 rev == x // 10</span><br>        <span class="hljs-comment"># 特别地, 各位数时：8, 8 &gt; 8 // 10, 退出循环，满足 rev == x // 10</span><br>        <span class="hljs-comment"># 偶数位时：1221, 12 &gt; 12 // 10, 退出循环，满足 rev == x</span><br>        <span class="hljs-comment"># 若不是回文数： 则都不满足</span><br>        <span class="hljs-keyword">while</span> rev &lt; x // <span class="hljs-number">10</span>:<br>            rev = rev * <span class="hljs-number">10</span> + x % <span class="hljs-number">10</span><br>            x //= <span class="hljs-number">10</span><br>        <span class="hljs-keyword">return</span> rev == x <span class="hljs-keyword">or</span> rev == x // <span class="hljs-number">10</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-comment"># 自己初步解，通过</span><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">romanToInt1</span>(<span class="hljs-params">self, s: <span class="hljs-built_in">str</span></span>) -&gt; <span class="hljs-built_in">int</span>:<br>        rm = [<span class="hljs-string">&quot;I&quot;</span>, <span class="hljs-string">&quot;V&quot;</span>, <span class="hljs-string">&quot;X&quot;</span>, <span class="hljs-string">&quot;L&quot;</span>, <span class="hljs-string">&quot;C&quot;</span>, <span class="hljs-string">&quot;D&quot;</span>, <span class="hljs-string">&quot;M&quot;</span>]<br>        num = [<span class="hljs-number">1</span>, <span class="hljs-number">5</span>, <span class="hljs-number">10</span>, <span class="hljs-number">50</span>, <span class="hljs-number">100</span>, <span class="hljs-number">500</span>, <span class="hljs-number">1000</span>]<br>        result = <span class="hljs-number">0</span><br>        i = <span class="hljs-number">0</span><br>        <span class="hljs-keyword">while</span> i &lt; <span class="hljs-built_in">len</span>(s):<br>            <span class="hljs-comment"># i != len(s) - 1 是判断 and 后面的 i+1 是否会越界</span><br>            <span class="hljs-comment"># rm.index(s[i]) &lt; rm.index(s[i + 1]) 判断下一位罗马数是否比当前的罗马数大</span><br>            <span class="hljs-comment"># 若大 则需要特殊规则取两者的差值，并且指针指向下一位</span><br>            <span class="hljs-comment"># 若否 则直接取当前的罗马数累积</span><br>            <span class="hljs-keyword">if</span> i != <span class="hljs-built_in">len</span>(s) - <span class="hljs-number">1</span> <span class="hljs-keyword">and</span> rm.index(s[i]) &lt; rm.index(s[i + <span class="hljs-number">1</span>]):<br>                result += num[rm.index(s[i + <span class="hljs-number">1</span>])] - num[rm.index(s[i])]<br>                i += <span class="hljs-number">1</span><br>            <span class="hljs-keyword">else</span>:<br>                result += num[rm.index(s[i])]<br>            i += <span class="hljs-number">1</span><br>        <span class="hljs-keyword">return</span> result<br><br>    <span class="hljs-comment"># 官方解</span><br>    <span class="hljs-comment"># 当出现特殊情况时，前一个相当于取 负值</span><br>    <span class="hljs-comment"># 与自己写的类似，但是不用在特殊情况时，移动两次指针</span><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">romanToInt2</span>(<span class="hljs-params">self, s: <span class="hljs-built_in">str</span></span>) -&gt; <span class="hljs-built_in">int</span>:<br>        rm = &#123;<span class="hljs-string">&quot;I&quot;</span> : <span class="hljs-number">1</span>, <span class="hljs-string">&quot;V&quot;</span> : <span class="hljs-number">5</span>, <span class="hljs-string">&quot;X&quot;</span> : <span class="hljs-number">10</span> , <span class="hljs-string">&quot;L&quot;</span> : <span class="hljs-number">50</span> , <span class="hljs-string">&quot;C&quot;</span> : <span class="hljs-number">100</span> , <span class="hljs-string">&quot;D&quot;</span> : <span class="hljs-number">500</span> ,<span class="hljs-string">&quot;M&quot;</span> : <span class="hljs-number">1000</span> &#125;<br>        result = <span class="hljs-number">0</span><br>        <span class="hljs-keyword">for</span> i, c <span class="hljs-keyword">in</span> <span class="hljs-built_in">enumerate</span>(s):<br>            <span class="hljs-keyword">if</span> i &lt; <span class="hljs-built_in">len</span>(s) - <span class="hljs-number">1</span> <span class="hljs-keyword">and</span> rm[c] &lt; rm[s[i + <span class="hljs-number">1</span>]]:<br>                result -= rm[c]<br>            <span class="hljs-keyword">else</span>:<br>                result += rm[c]<br>        <span class="hljs-keyword">return</span> result<br></code></pre></td></tr></table></figure>
                 
               </div>
             
@@ -371,8 +368,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>力扣-9-回文数</div>
-      <div>https://blog.gutaicheng.top/2025/08/25/力扣-9-回文数/</div>
+      <div>力扣-13-罗马数字转整数</div>
+      <div>https://blog.gutaicheng.top/2025/08/27/力扣-13-罗马数字转整数/</div>
     </div>
     <div class="license-meta">
       
@@ -384,7 +381,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2025年8月25日</div>
+          <div>2025年8月27日</div>
         </div>
       
       
@@ -414,9 +411,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2025/08/27/%E5%8A%9B%E6%89%A3-13-%E7%BD%97%E9%A9%AC%E6%95%B0%E5%AD%97%E8%BD%AC%E6%95%B4%E6%95%B0/" title="力扣-13-罗马数字转整数">
+                      <a href="/2025/09/10/Pytorch%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/" title="Pytorch环境安装教程">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">力扣-13-罗马数字转整数</span>
+                        <span class="hidden-mobile">Pytorch环境安装教程</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -424,8 +421,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2025/08/24/%E5%8A%9B%E6%89%A3-1-%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C/" title="力扣-1-两数之和">
-                        <span class="hidden-mobile">力扣-1-两数之和</span>
+                      <a href="/2025/08/25/%E5%8A%9B%E6%89%A3-9-%E5%9B%9E%E6%96%87%E6%95%B0/" title="力扣-9-回文数">
+                        <span class="hidden-mobile">力扣-9-回文数</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
