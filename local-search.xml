@@ -260,31 +260,6 @@
   
   
   <entry>
-    <title>vim操作记录</title>
-    <link href="/2025/01/05/vim%E6%93%8D%E4%BD%9C%E8%AE%B0%E5%BD%95/"/>
-    <url>/2025/01/05/vim%E6%93%8D%E4%BD%9C%E8%AE%B0%E5%BD%95/</url>
-    
-    <content type="html"><![CDATA[<meta name="referrer" content="no-referrer" /><h1 id="搜索"><a href="#搜索" class="headerlink" title="搜索"></a>搜索</h1><figure class="highlight excel"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs excel">/+关键字 ，回车即可。此为从文档当前位置向下查找关键字，按<span class="hljs-built_in">n</span>键查找关键字下一个位置；<br>?+关键字，回车即可。此为从文档挡圈位置向上查找关键字，按<span class="hljs-built_in">n</span>键向上查找关键字；<br></code></pre></td></tr></table></figure>]]></content>
-    
-    
-    <categories>
-      
-      <category>Linux</category>
-      
-    </categories>
-    
-    
-    <tags>
-      
-      <tag>Linux</tag>
-      
-    </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
     <title>ubuntu下安装Redis</title>
     <link href="/2025/01/05/ubuntu%E5%AE%89%E8%A3%85Redis/"/>
     <url>/2025/01/05/ubuntu%E5%AE%89%E8%A3%85Redis/</url>
@@ -302,6 +277,31 @@
     <tags>
       
       <tag>Linux - redis</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>vim操作记录</title>
+    <link href="/2025/01/05/vim%E6%93%8D%E4%BD%9C%E8%AE%B0%E5%BD%95/"/>
+    <url>/2025/01/05/vim%E6%93%8D%E4%BD%9C%E8%AE%B0%E5%BD%95/</url>
+    
+    <content type="html"><![CDATA[<meta name="referrer" content="no-referrer" /><h1 id="搜索"><a href="#搜索" class="headerlink" title="搜索"></a>搜索</h1><figure class="highlight excel"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs excel">/+关键字 ，回车即可。此为从文档当前位置向下查找关键字，按<span class="hljs-built_in">n</span>键查找关键字下一个位置；<br>?+关键字，回车即可。此为从文档挡圈位置向上查找关键字，按<span class="hljs-built_in">n</span>键向上查找关键字；<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>Linux</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Linux</tag>
       
     </tags>
     
@@ -580,33 +580,6 @@
   
   
   <entry>
-    <title>二分查找</title>
-    <link href="/2022/07/24/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/"/>
-    <url>/2022/07/24/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/</url>
-    
-    <content type="html"><![CDATA[<meta name="referrer" content="no-referrer" /><h1 id="1-算法实现流程"><a href="#1-算法实现流程" class="headerlink" title="1. 算法实现流程"></a>1. 算法实现流程</h1><p><img src="https://gitee.com/Gu-taicheng/image/raw/master/img/image-20220812175040199.png" alt="image-20220812175040199"></p><hr><h1 id="2-实现代码"><a href="#2-实现代码" class="headerlink" title="2. 实现代码"></a>2. 实现代码</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">er_fen_cha_zhao</span> &#123;  <br>  <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> &#123;<br>        <span class="hljs-type">int</span>[] array = &#123;<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>,<span class="hljs-number">5</span>,<span class="hljs-number">6</span>,<span class="hljs-number">7</span>,<span class="hljs-number">8</span>,<span class="hljs-number">9</span>,<span class="hljs-number">10</span>&#125;;<br>        <span class="hljs-type">int</span> <span class="hljs-variable">target</span> <span class="hljs-operator">=</span> <span class="hljs-number">100</span>;<br>        System.out.println(<span class="hljs-string">&quot;二分查找&quot;</span>);<br>        <span class="hljs-type">int</span> <span class="hljs-variable">idx</span> <span class="hljs-operator">=</span> binarySearch(array,target);<br>        <span class="hljs-keyword">if</span> (idx != -<span class="hljs-number">1</span>)&#123;<br>            System.out.println(<span class="hljs-string">&quot;目标存在，位置为array[&quot;</span> + idx +<span class="hljs-string">&quot;] ==&gt; &quot;</span> + array[idx]);<br>        &#125;<span class="hljs-keyword">else</span> System.out.println(<span class="hljs-string">&quot;目标不存在&quot;</span>);<br>    &#125;<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-type">int</span> <span class="hljs-title function_">binarySearch</span><span class="hljs-params">(<span class="hljs-type">int</span>[] a, <span class="hljs-type">int</span> t)</span>&#123;<br>        <span class="hljs-type">int</span> <span class="hljs-variable">left</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;<br>        <span class="hljs-type">int</span> <span class="hljs-variable">right</span> <span class="hljs-operator">=</span> a.length - <span class="hljs-number">1</span>;<br>        <span class="hljs-type">int</span> middle;<br>        <span class="hljs-keyword">while</span> (left &lt;= right)&#123;<br>            <span class="hljs-comment">/**</span><br><span class="hljs-comment">             * 二分查找 求中点 用加号</span><br><span class="hljs-comment">             */</span><br>            middle = (right + left) / <span class="hljs-number">2</span>;<br>            <span class="hljs-comment">/**</span><br><span class="hljs-comment">             * 当 left 和 right 很大的时候 相加再除以2就会产生整型溢出</span><br><span class="hljs-comment">             * 变换成</span><br><span class="hljs-comment">             * (right + left) / 2 ==&gt; </span><br><span class="hljs-comment">             * left/2 + right/2 ==&gt; </span><br><span class="hljs-comment">             * left + (-left/2 + right/2 ) ==&gt; </span><br><span class="hljs-comment">             * left + (right - left)/2</span><br><span class="hljs-comment">             */</span><br>            middle = left + (right - left)/<span class="hljs-number">2</span>;<br>            <span class="hljs-comment">/**</span><br><span class="hljs-comment">             * 方法二 右移运算 效率更高</span><br><span class="hljs-comment">             * (left + right) &gt;&gt;&gt; 1</span><br><span class="hljs-comment">             */</span><br>            middle = (left + right) &gt;&gt;&gt; <span class="hljs-number">1</span>;<br>            System.out.println(<span class="hljs-string">&quot;middle=&gt;&quot;</span> + middle);<br>            <span class="hljs-keyword">if</span> (a[middle] &gt; t) right = middle - <span class="hljs-number">1</span>;<br>            <span class="hljs-keyword">if</span> (a[middle] &lt; t) left = middle + <span class="hljs-number">1</span>;<br>            <span class="hljs-keyword">if</span> (a[middle] == t) <span class="hljs-keyword">return</span> middle;<br>        &#125;<br>        <span class="hljs-keyword">return</span> -<span class="hljs-number">1</span>;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure><hr><h1 id="3-面试题举例"><a href="#3-面试题举例" class="headerlink" title="3. 面试题举例"></a>3. 面试题举例</h1><p><img src="https://gitee.com/Gu-taicheng/image/raw/master/img/image-20220812175306185.png" alt="image-20220812175306185"></p>]]></content>
-    
-    
-    <categories>
-      
-      <category>算法与数据结构</category>
-      
-      <category>排序/查找</category>
-      
-    </categories>
-    
-    
-    <tags>
-      
-      <tag>二分查找</tag>
-      
-    </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
     <title>冒泡排序及其优化</title>
     <link href="/2022/07/24/%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F%E5%8F%8A%E5%85%B6%E4%BC%98%E5%8C%96/"/>
     <url>/2022/07/24/%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F%E5%8F%8A%E5%85%B6%E4%BC%98%E5%8C%96/</url>
@@ -626,6 +599,33 @@
     <tags>
       
       <tag>排序</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>二分查找</title>
+    <link href="/2022/07/24/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/"/>
+    <url>/2022/07/24/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/</url>
+    
+    <content type="html"><![CDATA[<meta name="referrer" content="no-referrer" /><h1 id="1-算法实现流程"><a href="#1-算法实现流程" class="headerlink" title="1. 算法实现流程"></a>1. 算法实现流程</h1><p><img src="https://gitee.com/Gu-taicheng/image/raw/master/img/image-20220812175040199.png" alt="image-20220812175040199"></p><hr><h1 id="2-实现代码"><a href="#2-实现代码" class="headerlink" title="2. 实现代码"></a>2. 实现代码</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">er_fen_cha_zhao</span> &#123;  <br>  <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> &#123;<br>        <span class="hljs-type">int</span>[] array = &#123;<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>,<span class="hljs-number">5</span>,<span class="hljs-number">6</span>,<span class="hljs-number">7</span>,<span class="hljs-number">8</span>,<span class="hljs-number">9</span>,<span class="hljs-number">10</span>&#125;;<br>        <span class="hljs-type">int</span> <span class="hljs-variable">target</span> <span class="hljs-operator">=</span> <span class="hljs-number">100</span>;<br>        System.out.println(<span class="hljs-string">&quot;二分查找&quot;</span>);<br>        <span class="hljs-type">int</span> <span class="hljs-variable">idx</span> <span class="hljs-operator">=</span> binarySearch(array,target);<br>        <span class="hljs-keyword">if</span> (idx != -<span class="hljs-number">1</span>)&#123;<br>            System.out.println(<span class="hljs-string">&quot;目标存在，位置为array[&quot;</span> + idx +<span class="hljs-string">&quot;] ==&gt; &quot;</span> + array[idx]);<br>        &#125;<span class="hljs-keyword">else</span> System.out.println(<span class="hljs-string">&quot;目标不存在&quot;</span>);<br>    &#125;<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-type">int</span> <span class="hljs-title function_">binarySearch</span><span class="hljs-params">(<span class="hljs-type">int</span>[] a, <span class="hljs-type">int</span> t)</span>&#123;<br>        <span class="hljs-type">int</span> <span class="hljs-variable">left</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;<br>        <span class="hljs-type">int</span> <span class="hljs-variable">right</span> <span class="hljs-operator">=</span> a.length - <span class="hljs-number">1</span>;<br>        <span class="hljs-type">int</span> middle;<br>        <span class="hljs-keyword">while</span> (left &lt;= right)&#123;<br>            <span class="hljs-comment">/**</span><br><span class="hljs-comment">             * 二分查找 求中点 用加号</span><br><span class="hljs-comment">             */</span><br>            middle = (right + left) / <span class="hljs-number">2</span>;<br>            <span class="hljs-comment">/**</span><br><span class="hljs-comment">             * 当 left 和 right 很大的时候 相加再除以2就会产生整型溢出</span><br><span class="hljs-comment">             * 变换成</span><br><span class="hljs-comment">             * (right + left) / 2 ==&gt; </span><br><span class="hljs-comment">             * left/2 + right/2 ==&gt; </span><br><span class="hljs-comment">             * left + (-left/2 + right/2 ) ==&gt; </span><br><span class="hljs-comment">             * left + (right - left)/2</span><br><span class="hljs-comment">             */</span><br>            middle = left + (right - left)/<span class="hljs-number">2</span>;<br>            <span class="hljs-comment">/**</span><br><span class="hljs-comment">             * 方法二 右移运算 效率更高</span><br><span class="hljs-comment">             * (left + right) &gt;&gt;&gt; 1</span><br><span class="hljs-comment">             */</span><br>            middle = (left + right) &gt;&gt;&gt; <span class="hljs-number">1</span>;<br>            System.out.println(<span class="hljs-string">&quot;middle=&gt;&quot;</span> + middle);<br>            <span class="hljs-keyword">if</span> (a[middle] &gt; t) right = middle - <span class="hljs-number">1</span>;<br>            <span class="hljs-keyword">if</span> (a[middle] &lt; t) left = middle + <span class="hljs-number">1</span>;<br>            <span class="hljs-keyword">if</span> (a[middle] == t) <span class="hljs-keyword">return</span> middle;<br>        &#125;<br>        <span class="hljs-keyword">return</span> -<span class="hljs-number">1</span>;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure><hr><h1 id="3-面试题举例"><a href="#3-面试题举例" class="headerlink" title="3. 面试题举例"></a>3. 面试题举例</h1><p><img src="https://gitee.com/Gu-taicheng/image/raw/master/img/image-20220812175306185.png" alt="image-20220812175306185"></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>算法与数据结构</category>
+      
+      <category>排序/查找</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>二分查找</tag>
       
     </tags>
     
