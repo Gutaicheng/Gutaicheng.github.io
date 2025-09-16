@@ -16,18 +16,18 @@
   <meta name="author" content="GuTaicheng">
   <meta name="keywords" content="博客, 学习, Java">
   
-    <meta name="description" content="本博客是根据Bilibil《PyTorch深度学习实践》完结合集_哔哩哔哩_bilibili所做的笔记 名词解释 数据集(Data Set)  训练集(Traing Set)  已知输入x和输出y，用于训练模型  训练集可在分一部分出来作为开发集，用于评估模型的泛化能力，防止过拟合    测试集(Test Set)  只知道输入x     过拟合(Overfitting)  是模型在训练集">
+    <meta name="description" content="Conda安装Pytorch环境安装教程 - GuTaicheng’s Blog 将Conda加入系统路径 在windows设置找到系统—系统信息—高级系统设置—环境变量  找到系统变量中的Path  新建两个环境变量（分别是conda的安装路径，和安装路径下的condabin文件夹路径）   再去cmd中直接输入conda即可出现conda的帮助信息   更换Conda的包下载源 打开清">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Pytorch深度学习实践">
-<meta property="og:url" content="https://blog.gutaicheng.top/2025/09/16/Pytorch%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%AE%9E%E8%B7%B5/index.html">
+<meta property="og:title" content="Conda使用教程">
+<meta property="og:url" content="https://blog.gutaicheng.top/2025/09/16/Conda%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/index.html">
 <meta property="og:site_name" content="GuTaicheng&#39;s Blog">
-<meta property="og:description" content="本博客是根据Bilibil《PyTorch深度学习实践》完结合集_哔哩哔哩_bilibili所做的笔记 名词解释 数据集(Data Set)  训练集(Traing Set)  已知输入x和输出y，用于训练模型  训练集可在分一部分出来作为开发集，用于评估模型的泛化能力，防止过拟合    测试集(Test Set)  只知道输入x     过拟合(Overfitting)  是模型在训练集">
+<meta property="og:description" content="Conda安装Pytorch环境安装教程 - GuTaicheng’s Blog 将Conda加入系统路径 在windows设置找到系统—系统信息—高级系统设置—环境变量  找到系统变量中的Path  新建两个环境变量（分别是conda的安装路径，和安装路径下的condabin文件夹路径）   再去cmd中直接输入conda即可出现conda的帮助信息   更换Conda的包下载源 打开清">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://gitee.com/Gu-taicheng/image/raw/master/img/image-20250910122424933.png">
-<meta property="article:published_time" content="2025-09-15T16:50:00.000Z">
-<meta property="article:modified_time" content="2025-09-15T13:54:53.613Z">
+<meta property="article:published_time" content="2025-09-16T12:11:00.000Z">
+<meta property="article:modified_time" content="2025-09-16T14:12:43.394Z">
 <meta property="article:author" content="GuTaicheng">
-<meta property="article:tag" content="Pytorch - 深度学习">
+<meta property="article:tag" content="Conda - 深度学习">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://gitee.com/Gu-taicheng/image/raw/master/img/image-20250910122424933.png">
   
@@ -35,7 +35,7 @@
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>Pytorch深度学习实践 - GuTaicheng&#39;s Blog</title>
+  <title>Conda使用教程 - GuTaicheng&#39;s Blog</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -223,7 +223,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="Pytorch深度学习实践"></span>
+            <span id="subtitle" data-typed-text="Conda使用教程"></span>
           
         </div>
 
@@ -234,8 +234,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2025-09-16 00:50" pubdate>
-          2025年9月16日 凌晨
+        <time datetime="2025-09-16 20:11" pubdate>
+          2025年9月16日 晚上
         </time>
       </span>
     
@@ -246,7 +246,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          928 字
+          1.7k 字
         
       </span>
     
@@ -257,7 +257,7 @@
         
         
         
-          8 分钟
+          14 分钟
         
       </span>
     
@@ -303,7 +303,7 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">Pytorch深度学习实践</h1>
+            <h1 style="display: none">Conda使用教程</h1>
             
             
               <div class="markdown-body">
@@ -312,85 +312,93 @@
 
 
 
-<p>本博客是根据Bilibil<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Y7411d7Ys/">《PyTorch深度学习实践》完结合集_哔哩哔哩_bilibili</a>所做的笔记</p>
-<h1 id="名词解释"><a href="#名词解释" class="headerlink" title="名词解释"></a>名词解释</h1><ul>
-<li><p>数据集(Data Set)</p>
+<h1 id="Conda安装"><a href="#Conda安装" class="headerlink" title="Conda安装"></a>Conda安装</h1><p><a href="https://blog.gutaicheng.top/2025/09/10/Pytorch%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/#Miniconda%E5%AE%89%E8%A3%85">Pytorch环境安装教程 - GuTaicheng’s Blog</a></p>
+<h1 id="将Conda加入系统路径"><a href="#将Conda加入系统路径" class="headerlink" title="将Conda加入系统路径"></a>将Conda加入系统路径</h1><ul>
+<li><p>在windows设置找到系统—系统信息—高级系统设置—环境变量</p>
+</li>
+<li><p>找到系统变量中的Path</p>
+</li>
+<li><p>新建两个环境变量（分别是conda的安装路径，和安装路径下的condabin文件夹路径）</p>
+<p><img src="https://gitee.com/Gu-taicheng/image/raw/master/img/image-20250916202041388.png" srcset="/img/loading.gif" lazyload alt="image-20250916202041388"></p>
+</li>
+<li><p>再去cmd中直接输入<strong>conda</strong>即可出现conda的帮助信息</p>
+</li>
+</ul>
+<h1 id="更换Conda的包下载源"><a href="#更换Conda的包下载源" class="headerlink" title="更换Conda的包下载源"></a>更换Conda的包下载源</h1><ul>
+<li><p>打开清华源镜像<a target="_blank" rel="noopener" href="https://mirrors.tuna.tsinghua.edu.cn/help/anaconda/">anaconda | 镜像站使用帮助 | 清华大学开源软件镜像站 | Tsinghua Open Source Mirror</a></p>
+</li>
+<li><p>根据使用方法生成**.conda<strong>配置文件，生成位置在</strong>C:\Users\用户名**</p>
+<p><img src="https://gitee.com/Gu-taicheng/image/raw/master/img/image-20250916202602944.png" srcset="/img/loading.gif" lazyload alt="image-20250916202602944"></p>
+</li>
+<li><p>使用记事本打开该文件，全部删除后粘贴如下配置：</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs awk">channels:<br>  - defaults<br>show_channel_urls: true<br>default_channels:<br>  - https:<span class="hljs-regexp">//mi</span>rrors.tuna.tsinghua.edu.cn<span class="hljs-regexp">/anaconda/</span>pkgs/main<br>  - https:<span class="hljs-regexp">//mi</span>rrors.tuna.tsinghua.edu.cn<span class="hljs-regexp">/anaconda/</span>pkgs/r<br>  - https:<span class="hljs-regexp">//mi</span>rrors.tuna.tsinghua.edu.cn<span class="hljs-regexp">/anaconda/</span>pkgs/msys2<br>custom_channels:<br>  conda-forge: https:<span class="hljs-regexp">//mi</span>rrors.tuna.tsinghua.edu.cn<span class="hljs-regexp">/anaconda/</span>cloud<br>  pytorch: https:<span class="hljs-regexp">//mi</span>rrors.tuna.tsinghua.edu.cn<span class="hljs-regexp">/anaconda/</span>cloud<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>清除配置缓存：<strong>conda clean -i</strong></p>
+</li>
+<li><p>查看是否替换成功：<strong>conda info</strong></p>
+<p><img src="https://gitee.com/Gu-taicheng/image/raw/master/img/image-20250916203301317.png" srcset="/img/loading.gif" lazyload alt="image-20250916203301317"></p>
+</li>
+</ul>
+<h1 id="修改conda环境保存的路径"><a href="#修改conda环境保存的路径" class="headerlink" title="修改conda环境保存的路径"></a>修改conda环境保存的路径</h1><p>最新版本已经默认放在minicoda的安装路径下，但老版本可能会放在用户路径下</p>
 <ul>
-<li><p>训练集(Traing Set)</p>
+<li><p>查看路径优先级 <strong>conda info</strong></p>
+<p><img src="https://gitee.com/Gu-taicheng/image/raw/master/img/image-20250916203616603.png" srcset="/img/loading.gif" lazyload alt="image-20250916203616603"></p>
+</li>
+<li><p>同样的打开上一步的 .conda文件，在下面添加如下配置信息：</p>
+<p><img src="https://gitee.com/Gu-taicheng/image/raw/master/img/image-20250916204258058.png" srcset="/img/loading.gif" lazyload alt="image-20250916204258058"></p>
+</li>
+<li><p>最最最重要的一步，就算是默认安装在conda的安装路径下，也需要开放这个**&#x2F;envs**的读写权限</p>
+</li>
+</ul>
+<p><img src="https://gitee.com/Gu-taicheng/image/raw/master/img/image-20250916205245756.png" srcset="/img/loading.gif" lazyload alt="image-20250916205245756"></p>
+<h1 id="新建Conda的虚拟环境"><a href="#新建Conda的虚拟环境" class="headerlink" title="新建Conda的虚拟环境"></a>新建Conda的虚拟环境</h1><figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">conda</span> create --name myenv python=<span class="hljs-number">3</span>.<span class="hljs-number">8</span><br></code></pre></td></tr></table></figure>
+
+<p>以上代码创建一个名为 “myenv” 的新环境，并指定 Python 版本为 3.8。</p>
+<p>然后在我们设置的环境放置路径中就能看到</p>
+<p><img src="https://gitee.com/Gu-taicheng/image/raw/master/img/image-20250916205618871.png" srcset="/img/loading.gif" lazyload alt="image-20250916205618871"></p>
+<h1 id="删除Conda的虚拟环境"><a href="#删除Conda的虚拟环境" class="headerlink" title="删除Conda的虚拟环境"></a>删除Conda的虚拟环境</h1><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs css">conda remove -n <span class="hljs-selector-attr">[环境名称]</span> <span class="hljs-attr">--all</span><br></code></pre></td></tr></table></figure>
+
+<p><img src="https://gitee.com/Gu-taicheng/image/raw/master/img/image-20250916210046470.png" srcset="/img/loading.gif" lazyload alt="image-20250916210046470"></p>
+<h1 id="查看已有的环境列表"><a href="#查看已有的环境列表" class="headerlink" title="查看已有的环境列表"></a>查看已有的环境列表</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">conda <span class="hljs-built_in">env</span> list<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://gitee.com/Gu-taicheng/image/raw/master/img/image-20250916211449339.png" srcset="/img/loading.gif" lazyload alt="image-20250916211449339"></p>
+<h1 id="进入指定虚拟环境"><a href="#进入指定虚拟环境" class="headerlink" title="进入指定虚拟环境"></a>进入指定虚拟环境</h1><figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">conda</span> activate<span class="hljs-meta"> [环境名]</span><br></code></pre></td></tr></table></figure>
+
+<p><img src="https://gitee.com/Gu-taicheng/image/raw/master/img/image-20250916211543674.png" srcset="/img/loading.gif" lazyload alt="image-20250916211543674"></p>
+<h1 id="退出当前环境"><a href="#退出当前环境" class="headerlink" title="退出当前环境"></a>退出当前环境</h1><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">conda deactivate</span><br></code></pre></td></tr></table></figure>
+
+
+
+
+
+<h1 id="Conda的一些包缓存机制"><a href="#Conda的一些包缓存机制" class="headerlink" title="Conda的一些包缓存机制"></a>Conda的一些包缓存机制</h1><p>Conda 有一个中央包缓存目录（通常称为 <code>pkgs_dirs</code>）。<strong>无论你为多少个环境安装同一个包，这个包的实际文件在磁盘上只会在缓存中保存一份</strong>。当你安装某个版本的包时，Conda 会首先检查缓存中是否已经存在该版本的包。如果存在，Conda 会从缓存中创建硬链接到新环境的目录中，而不是复制一份新的文件副本。</p>
+<p>当你新建一个环境并安装与 其他环境相同的软件包时，Conda  通常不会重复下载和存储相同的包文件，而是会<strong>优先使用缓存的包，并通过硬链接（hard link）的方式来节省磁盘空间</strong>。</p>
+<p>比如说我新建的一个环境，里面没有安装pytorch，执行安装命令后，并没有走网络下载，而是使用缓存(Using cached)</p>
+<p><img src="https://gitee.com/Gu-taicheng/image/raw/master/img/image-20250916212734351.png" srcset="/img/loading.gif" lazyload alt="image-20250916212734351"></p>
+<h1 id="安装选择"><a href="#安装选择" class="headerlink" title="安装选择"></a>安装选择</h1><p>安装包可以选择conda安装，也可以选择pip安装</p>
+<p><strong>最好选择pip</strong>，并且以后所有的包都选择pip安装，将conda仅仅作为环境管理工具</p>
+<h1 id="在PyCharm中使用Conda的虚拟环境"><a href="#在PyCharm中使用Conda的虚拟环境" class="headerlink" title="在PyCharm中使用Conda的虚拟环境"></a>在PyCharm中使用Conda的虚拟环境</h1><h2 id="更改已有项目的环境"><a href="#更改已有项目的环境" class="headerlink" title="更改已有项目的环境"></a>更改已有项目的环境</h2><ul>
+<li><p>打开PyCharm</p>
+</li>
+<li><p>点击设置</p>
+</li>
+<li><p>找到项目:[name]</p>
+</li>
+<li><p>点击添加解释器—添加本地解释器</p>
+</li>
+<li><p>选择现有（后续两个方法都行，<strong>优先方法一</strong>）</p>
 <ul>
-<li><p>已知<strong>输入x</strong>和<strong>输出y</strong>，用于训练模型</p>
+<li><p><strong>方法一</strong>：类型选择Conda，环境选择自己需要的</p>
+<p><img src="https://gitee.com/Gu-taicheng/image/raw/master/img/image-20250916220302632.png" srcset="/img/loading.gif" lazyload alt="image-20250916220302632"></p>
 </li>
-<li><p>训练集可在分一部分出来作为<strong>开发集</strong>，用于评估模型的泛化能力，防止过拟合</p>
-</li>
-</ul>
-</li>
-<li><p>测试集(Test Set)</p>
-<ul>
-<li>只知道<strong>输入x</strong></li>
-</ul>
+<li><p><strong>方法二</strong>：类型选择python，找到你设置的conda环境的存储路径下的<strong>python.exe</strong>（如果找不到，可能是隐藏文件夹，点击“眼睛”选项即可）</p>
+<p><img src="https://gitee.com/Gu-taicheng/image/raw/master/img/image-20250916214758802.png" srcset="/img/loading.gif" lazyload alt="image-20250916214758802"></p>
 </li>
 </ul>
 </li>
-<li><p>过拟合(Overfitting)</p>
-<ul>
-<li>是模型在训练集上表现很好，但在新数据上表现很差</li>
-<li>但它并没有真正学到数据背后的普遍规律，而是把训练数据中的<strong>所有特征，包括噪声</strong>，都当作了学习目标。当它遇到<strong>新数据</strong>时，它的表现会急剧下降，预测结果非常不准确</li>
 </ul>
-</li>
-<li><p>泛化(Generalization)</p>
-<ul>
-<li>泛化是机器学习模型的真正目标，它是指模型在<strong>未见过的新数据</strong>上的表现能力</li>
-</ul>
-</li>
-</ul>
-<h1 id="线性模型-Linear-Model"><a href="#线性模型-Linear-Model" class="headerlink" title="线性模型(Linear Model)"></a>线性模型(Linear Model)</h1><p>拿到数据集，先试着用线性模型<strong>试一下</strong>，即找到一个<strong>权重w和截距b</strong>，使得训练集满足：</p>
-<p><img src="https://gitee.com/Gu-taicheng/image/raw/master/img/image-20250915205727712.png" srcset="/img/loading.gif" lazyload alt="image-20250915205727712"></p>
-<ul>
-<li><p><strong>ŷ</strong>读作y_hat，表示预测的值，并不是准确值</p>
-</li>
-<li><p>也可简化模型，将截距b去掉</p>
-<p><img src="https://gitee.com/Gu-taicheng/image/raw/master/img/image-20250915210137135.png" srcset="/img/loading.gif" lazyload alt="image-20250915210137135"></p>
-</li>
-</ul>
-<p>所以线性模型的关键是找到一个合适的<strong>权重w</strong>，而什么叫做”合适呢“？即误差小。</p>
-<ul>
-<li><p>初始数据集可能并不是严格的在直线上的点集，会是离散的，而我们预设的线性模型是一条严格的直线</p>
-<p><img src="https://gitee.com/Gu-taicheng/image/raw/master/img/image-20250915211004528.png" srcset="/img/loading.gif" lazyload alt="image-20250915211004528"></p>
-</li>
-<li><p>而预测的**ŷ(a)<strong>会和对应的同一个横坐标a的真实值</strong>y(a)**有差值</p>
-<p><img src="https://gitee.com/Gu-taicheng/image/raw/master/img/image-20250915211334561.png" srcset="/img/loading.gif" lazyload alt="image-20250915211334561"></p>
-</li>
-<li><p>但是由于差值有正有负，所以对差值进行<strong>求平方</strong>（当然也有其他方法，取绝对值等，<strong>但是平方对于误差大的惩罚越大</strong>）即可消去负值影响，而这些平方值即为<strong>损失(loss)</strong></p>
-<ul>
-<li>loss只是针对单独一个样本的</li>
-</ul>
-<p><img src="https://gitee.com/Gu-taicheng/image/raw/master/img/image-20250915212029351.png" srcset="/img/loading.gif" lazyload alt="image-20250915212029351"></p>
-</li>
-<li><p>得到单独样本<strong>损失</strong>后，对所有样本的损失进行<strong>求和</strong>，再取<strong>平均值</strong>，即得到训练集的误差(Error)</p>
-<ul>
-<li>采用平方来计算这种方法得到的误差叫做平均平方误差或者均方误差（Mean Squared Error, <strong>MSE</strong>）</li>
-<li>误差(Error)是针对训练集training set的</li>
-</ul>
-<p><img src="https://gitee.com/Gu-taicheng/image/raw/master/img/image-20250915213243814.png" srcset="/img/loading.gif" lazyload alt="image-20250915213243814"></p>
-<blockquote>
-<p>[!IMPORTANT]</p>
-<p>注意：<br>损失函数<strong>loss function</strong>的定义：</p>
-<p>并不是上面的 loss &#x3D; 差值的平方</p>
-<p>而是最终求和后的平均计算，比如MSE的公式</p>
-</blockquote>
-</li>
-<li><p>最终找到一个误差最小的<strong>权重w</strong>，就是线性模型的关键。</p>
-<p>比如下图的数据集与权重选择</p>
-<p><img src="https://gitee.com/Gu-taicheng/image/raw/master/img/image-20250915213736813.png" srcset="/img/loading.gif" lazyload alt="image-20250915213736813"></p>
-</li>
-</ul>
-<h2 id="穷举法找权重w"><a href="#穷举法找权重w" class="headerlink" title="穷举法找权重w"></a>穷举法找权重w</h2><ul>
-<li><p>先随机找一个<strong>大的步长</strong>范围，尝试找到一个<strong>可能（可能有增或减的趋势）</strong>存在最小权重的范围</p>
-</li>
-<li><p>再在这个范围内，<strong>缩短步长</strong>，以此找到产生最小误差的权重</p>
-<p><img src="https://gitee.com/Gu-taicheng/image/raw/master/img/image-20250915214623127.png" srcset="/img/loading.gif" lazyload alt="image-20250915214623127"></p>
-</li>
-</ul>
+<h1 id="新建项目选择Conda环境"><a href="#新建项目选择Conda环境" class="headerlink" title="新建项目选择Conda环境"></a>新建项目选择Conda环境</h1><p>如图类似上述过程</p>
+<p><img src="https://gitee.com/Gu-taicheng/image/raw/master/img/image-20250916220436779.png" srcset="/img/loading.gif" lazyload alt="image-20250916220436779"></p>
 
                 
               </div>
@@ -424,7 +432,7 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/Pytorch-%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">#Pytorch - 深度学习</a>
+        <a href="/tags/Conda-%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">#Conda - 深度学习</a>
       
     </div>
   
@@ -436,8 +444,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>Pytorch深度学习实践</div>
-      <div>https://blog.gutaicheng.top/2025/09/16/Pytorch深度学习实践/</div>
+      <div>Conda使用教程</div>
+      <div>https://blog.gutaicheng.top/2025/09/16/Conda使用教程/</div>
     </div>
     <div class="license-meta">
       
@@ -479,18 +487,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2025/09/16/Conda%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/" title="Conda使用教程">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Conda使用教程</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2025/09/10/Pytorch%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/" title="Pytorch环境安装教程">
-                        <span class="hidden-mobile">Pytorch环境安装教程</span>
+                      <a href="/2025/09/16/Pytorch%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%AE%9E%E8%B7%B5/" title="Pytorch深度学习实践">
+                        <span class="hidden-mobile">Pytorch深度学习实践</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
