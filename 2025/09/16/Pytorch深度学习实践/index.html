@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://gitee.com/Gu-taicheng/image/raw/master/img/image-20250910122424933.png">
 <meta property="article:published_time" content="2025-09-15T16:50:00.000Z">
-<meta property="article:modified_time" content="2025-09-19T09:54:43.815Z">
+<meta property="article:modified_time" content="2025-09-19T14:31:39.880Z">
 <meta property="article:author" content="GuTaicheng">
 <meta property="article:tag" content="Pytorch - 深度学习">
 <meta name="twitter:card" content="summary_large_image">
@@ -246,7 +246,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          9.9k 字
+          11k 字
         
       </span>
     
@@ -257,7 +257,7 @@
         
         
         
-          83 分钟
+          88 分钟
         
       </span>
     
@@ -469,6 +469,41 @@
 <p><img src="https://gitee.com/Gu-taicheng/image/raw/master/img/image-20250919174947709.png" srcset="/img/loading.gif" lazyload alt="image-20250919174947709"></p>
 <ul>
 <li>上述代码在求取平均值时采用了**np.mean()**的方法，使代码更简洁。</li>
+</ul>
+<h1 id="复杂神经网络初体验"><a href="#复杂神经网络初体验" class="headerlink" title="复杂神经网络初体验"></a>复杂神经网络初体验</h1><p>上述所实现的模型都只是很简单的少量权重，少量层数的线性模型。</p>
+<p>那考虑如下图的大量权重，大量层数的<strong>多隐层前馈全连接神经网络</strong></p>
+<p><img src="https://gitee.com/Gu-taicheng/image/raw/master/img/image-20250919214751381.png" srcset="/img/loading.gif" lazyload alt="image-20250919214751381"></p>
+<ul>
+<li>x11 先变成 y11，得通过H1，H2，H3，H4，这四层权重</li>
+<li>输入X，是一个 5 * 1 的矩阵，第一层H1，是一个 6 * 1 的矩阵</li>
+<li>而矩阵X变换成矩阵H1，需要权重矩阵 W1 与 X 相乘，即 W * X &#x3D; H</li>
+<li>也就是说 W1 是一个 6 * 5 的矩阵</li>
+<li>即 [6 * 5] * [5, 1] &#x3D; [6 * 1]</li>
+<li>同理 H1 变换至 H2，需要一个 [7 * 6] 的W2矩阵</li>
+</ul>
+<h1 id="反向梯度传播算法"><a href="#反向梯度传播算法" class="headerlink" title="反向梯度传播算法"></a>反向梯度传播算法</h1><p>上述的全连接神经网络，有好几百个权重，如果每个都采用先写解析式是很困难的，而且每层之间都是复合函数，这是个相当复杂的工作量。</p>
+<p><strong>故此考虑，把这样一个复杂的神经网络，看作一个图，通过图来传播梯度，根据链式法则求取梯度，这就叫反向梯度传播算法。</strong></p>
+<h2 id="两层简单图"><a href="#两层简单图" class="headerlink" title="两层简单图"></a>两层简单图</h2><p><img src="https://gitee.com/Gu-taicheng/image/raw/master/img/image-20250919221832160.png" srcset="/img/loading.gif" lazyload alt="image-20250919221832160"></p>
+<ul>
+<li><p>每一层的结构都是一样的</p>
+</li>
+<li><p>权重矩阵 W 与输入矩阵相乘，得到一个新的矩阵</p>
+</li>
+<li><p>新的矩阵与偏置值矩阵 b 相加，得到输出结果</p>
+</li>
+<li><p><strong>当前层的输出作为下一层的输入</strong></p>
+</li>
+<li><p>最终得到预测解析式，类似于迭代套娃</p>
+<p><img src="https://gitee.com/Gu-taicheng/image/raw/master/img/image-20250919222136045.png" srcset="/img/loading.gif" lazyload alt="image-20250919222136045"></p>
+</li>
+<li><p>但是这样建立模型会有一个<strong>问题</strong>，因为不管你套娃多少层，都可以通过计算展开成单层模型的样子（又回到最初的起点），不管多少层都变成单一线性的，如下图</p>
+<p><img src="https://gitee.com/Gu-taicheng/image/raw/master/img/image-20250919222551620.png" srcset="/img/loading.gif" lazyload alt="image-20250919222551620"></p>
+</li>
+</ul>
+<h3 id="激活函数"><a href="#激活函数" class="headerlink" title="激活函数"></a>激活函数</h3><ul>
+<li><p>解决方法也很简单，即在每一层的输入之前，对上一层的输出加上一个非线性的变化函数，整个函数也叫做<strong>激活函数</strong>，这样就不能对迭代式子进行展开了</p>
+<p><img src="https://gitee.com/Gu-taicheng/image/raw/master/img/image-20250919222858405.png" srcset="/img/loading.gif" lazyload alt="image-20250919222858405"></p>
+</li>
 </ul>
 
                 
