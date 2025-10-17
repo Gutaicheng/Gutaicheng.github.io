@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://gitee.com/Gu-taicheng/image/raw/master/img/image-20250910122424933.png">
 <meta property="article:published_time" content="2025-09-15T16:50:00.000Z">
-<meta property="article:modified_time" content="2025-10-15T14:50:29.402Z">
+<meta property="article:modified_time" content="2025-10-17T14:24:29.672Z">
 <meta property="article:author" content="GuTaicheng">
 <meta property="article:tag" content="Pytorch - 深度学习">
 <meta name="twitter:card" content="summary_large_image">
@@ -246,7 +246,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          26k 字
+          30k 字
         
       </span>
     
@@ -257,7 +257,7 @@
         
         
         
-          216 分钟
+          250 分钟
         
       </span>
     
@@ -726,6 +726,97 @@
 <h2 id="示例代码-1"><a href="#示例代码-1" class="headerlink" title="示例代码"></a>示例代码</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np<br><span class="hljs-keyword">import</span> torch<br><span class="hljs-keyword">from</span> matplotlib <span class="hljs-keyword">import</span> pyplot <span class="hljs-keyword">as</span> plt<br><span class="hljs-keyword">from</span> torch <span class="hljs-keyword">import</span> nn, optim<br><span class="hljs-keyword">from</span> torch.utils.data <span class="hljs-keyword">import</span> Dataset, DataLoader<br><br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">DiabetesDataset</span>(<span class="hljs-title class_ inherited__">Dataset</span>):<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self, filepath</span>):<br>        xy = np.loadtxt(filepath, delimiter=<span class="hljs-string">&#x27;,&#x27;</span>, dtype=np.float32)<br>        self.<span class="hljs-built_in">len</span> = xy.shape[<span class="hljs-number">0</span>]<br>        self.x_data = torch.from_numpy(xy[:, :-<span class="hljs-number">1</span>])<br>        self.y_data = torch.from_numpy(xy[:, [-<span class="hljs-number">1</span>]])<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__getitem__</span>(<span class="hljs-params">self, index</span>):<br>        <span class="hljs-keyword">return</span> self.x_data[index], self.y_data[index]<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__len__</span>(<span class="hljs-params">self</span>):<br>        <span class="hljs-keyword">return</span> self.<span class="hljs-built_in">len</span><br><br>dataset = DiabetesDataset(<span class="hljs-string">&#x27;DataSet/diabetes.csv.gz&#x27;</span>)<br>train_loader = DataLoader(dataset=dataset, batch_size=<span class="hljs-number">32</span>, shuffle=<span class="hljs-literal">True</span>, num_workers=<span class="hljs-number">0</span>)<br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">MDIModel</span>(nn.Module):<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self</span>):<br>        <span class="hljs-built_in">super</span>(MDIModel, self).__init__()<br>        self.linear1 = nn.Linear(<span class="hljs-number">8</span>, <span class="hljs-number">6</span>)<br>        self.linear2 = nn.Linear(<span class="hljs-number">6</span>, <span class="hljs-number">4</span>)<br>        self.linear3 = nn.Linear(<span class="hljs-number">4</span>, <span class="hljs-number">1</span>)<br>        self.sigmoid = nn.Sigmoid()<br>        self.relu = nn.ReLU()<br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">forward</span>(<span class="hljs-params">self, x</span>):<br>        x = self.relu(self.linear1(x))<br>        x = self.relu(self.linear2(x))<br>        x = self.sigmoid(self.linear3(x))<br>        <span class="hljs-keyword">return</span> x<br><br>my_model = MDIModel()<br><span class="hljs-comment"># criterion = nn.BCELoss(size_average=True) # &lt;-- 旧写法</span><br>criterion = nn.BCELoss(reduction=<span class="hljs-string">&#x27;mean&#x27;</span>) <span class="hljs-comment"># &lt;-- 新写法</span><br>optimizer = optim.SGD(my_model.parameters(), lr=<span class="hljs-number">0.05</span>)<br><br><span class="hljs-comment"># 训练参数及记录</span><br>num_epochs = <span class="hljs-number">500</span><br>costs_list = []<br>epochs_list = []<br><br><span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&#x27;__main__&#x27;</span>:<br>    <span class="hljs-keyword">for</span> epoch <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(num_epochs):<br>        total_batch_loss = <span class="hljs-number">0.0</span><br>        num_batches = <span class="hljs-number">0</span><br>        <span class="hljs-keyword">for</span> i, data <span class="hljs-keyword">in</span> <span class="hljs-built_in">enumerate</span>(train_loader, <span class="hljs-number">0</span>):<br>            x_data, y_data = data <span class="hljs-comment"># 自动把x和y从train_loader中分离出来，并且是二维Tensor</span><br>            optimizer.zero_grad()<br>            y_pred = my_model(x_data)<br>            loss = criterion(y_pred, y_data)<br><br>            total_batch_loss += loss.item()  <span class="hljs-comment"># 累加本 Batch 的损失</span><br>            num_batches += <span class="hljs-number">1</span><br><br>            loss.backward()<br>            optimizer.step()<br>        <span class="hljs-comment"># 在 Epoch 结束后，计算平均损失</span><br>        <span class="hljs-comment"># 这样虽然不是特别准确, 但是胜在简洁高效，适用于训练集，如果是测试集则需要更准确的loss统计</span><br>        average_epoch_loss = total_batch_loss / num_batches<br><br>        <span class="hljs-comment"># 记录 Epoch 损失</span><br>        costs_list.append(average_epoch_loss)<br>        epochs_list.append(epoch)<br><br>        <span class="hljs-comment"># 可以输出 Epoch 结果</span><br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">f&#x27;Epoch [<span class="hljs-subst">&#123;epoch + <span class="hljs-number">1</span>&#125;</span>/<span class="hljs-subst">&#123;num_epochs&#125;</span>], Avg Loss: <span class="hljs-subst">&#123;average_epoch_loss:<span class="hljs-number">.6</span>f&#125;</span>&#x27;</span>)<br><br>    plt.plot(epochs_list, costs_list)<br>    plt.ylabel(<span class="hljs-string">&#x27;BCE Loss&#x27;</span>)<br>    plt.xlabel(<span class="hljs-string">&#x27;Epoch&#x27;</span>)<br>    plt.show()<br></code></pre></td></tr></table></figure>
 
 <p><img src="https://gitee.com/Gu-taicheng/image/raw/master/img/image-20251015224237023.png" srcset="/img/loading.gif" lazyload alt="image-20251015224237023"></p>
+<h1 id="多分类问题"><a href="#多分类问题" class="headerlink" title="多分类问题"></a>多分类问题</h1><ul>
+<li><p>多分类问题，从字面意思来看，即最终会将数据集划分为2个以上的分类</p>
+</li>
+<li><p>比如说手写数字识别，最终就有十个分类，0~9</p>
+</li>
+<li><p>如果在神经网络的最后一层，仍然采用sigmoid函数输出的话，将会产生以下情况</p>
+<ul>
+<li>P(class&#x3D;0) &#x3D; 0.8; P(class&#x3D;1) &#x3D; 0.7;  P(class&#x3D;2) &#x3D; 0.9;  ……</li>
+<li>因为sigmoid函数处理的是分类问题，也就是只能回答是或者不是，十种分类，最终会输出十个是或者不是</li>
+<li>那到底概率大于多少才输出是呢？按照上面的输出，80%的概率是0，90%的概率是2，这样就完全无法分辨最终结果。</li>
+<li>所以为了解决这个问题，引入全新的<strong>Softmax层</strong></li>
+</ul>
+</li>
+<li><p>Softmax层的主要工作就是将多个线性输出的值，映射成：</p>
+<ul>
+<li>全部大于0</li>
+<li>且总和等于1</li>
+</ul>
+</li>
+<li><p>即采用如下的函数（其中Zi表示第i个线性输出的值），通过e^x，确保值为正，分母取总和，确保概率总和等于1</p>
+<p><img src="https://gitee.com/Gu-taicheng/image/raw/master/img/image-20251016203155514.png" srcset="/img/loading.gif" lazyload alt="image-20251016203155514"></p>
+</li>
+</ul>
+<h2 id="损失函数"><a href="#损失函数" class="headerlink" title="损失函数"></a>损失函数</h2><p>一般来说多分类问题有两种最终层+损失函数的组合</p>
+<ul>
+<li><p>linear + CrossEntropyLoss</p>
+<p><img src="https://gitee.com/Gu-taicheng/image/raw/master/img/image-20251016203917787.png" srcset="/img/loading.gif" lazyload alt="image-20251016203917787"></p>
+</li>
+<li><p>LogSoftmax + NLLLoss</p>
+<p><img src="https://gitee.com/Gu-taicheng/image/raw/master/img/image-20251016204011312.png" srcset="/img/loading.gif" lazyload alt="image-20251016204011312"></p>
+<p>从图示很容易看出来，中间取对数是否被包含在计算损失的过程中</p>
+</li>
+</ul>
+<h2 id="示例代码（MNIST手写数字集）"><a href="#示例代码（MNIST手写数字集）" class="headerlink" title="示例代码（MNIST手写数字集）"></a>示例代码（MNIST手写数字集）</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> torch<br><span class="hljs-keyword">from</span> torch <span class="hljs-keyword">import</span> nn<br><span class="hljs-keyword">from</span> torchvision <span class="hljs-keyword">import</span> transforms<br><span class="hljs-keyword">from</span> torchvision <span class="hljs-keyword">import</span> datasets<br><span class="hljs-keyword">from</span> torch.utils.data <span class="hljs-keyword">import</span> DataLoader<br><span class="hljs-keyword">import</span> torch.optim <span class="hljs-keyword">as</span> optim<br><br>batch_size = <span class="hljs-number">64</span><br>transform = transforms.Compose([<br>    transforms.ToTensor(),<br>    transforms.Normalize((<span class="hljs-number">0.1307</span>,), (<span class="hljs-number">0.3081</span>,))<br>])<br><br>train_dataset = datasets.MNIST(root=<span class="hljs-string">&#x27;DataSet/MNIST&#x27;</span>,<br>                               train=<span class="hljs-literal">True</span>,<br>                               transform=transform,<br>                               download=<span class="hljs-literal">True</span>)<br><br>train_loader = DataLoader(dataset=train_dataset,<br>                          shuffle=<span class="hljs-literal">True</span>,<br>                          batch_size=batch_size)<br><br>test_dataset = datasets.MNIST(root=<span class="hljs-string">&#x27;DataSet/MNIST&#x27;</span>,<br>                              train=<span class="hljs-literal">False</span>,<br>                              transform=transform,<br>                              download=<span class="hljs-literal">True</span>)<br><br>test_loader = DataLoader(dataset=test_dataset,<br>                         shuffle=<span class="hljs-literal">False</span>,<br>                         batch_size=batch_size)<br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Net</span>(nn.Module):<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self</span>):<br>        <span class="hljs-built_in">super</span>(Net, self).__init__()<br>        self.l1 = nn.Linear(<span class="hljs-number">784</span>, <span class="hljs-number">512</span>)<br>        self.l2 = nn.Linear(<span class="hljs-number">512</span>, <span class="hljs-number">256</span>)<br>        self.l3 = nn.Linear(<span class="hljs-number">256</span>, <span class="hljs-number">128</span>)<br>        self.l4 = nn.Linear(<span class="hljs-number">128</span>, <span class="hljs-number">64</span>)<br>        self.l5 = nn.Linear(<span class="hljs-number">64</span>, <span class="hljs-number">10</span>)<br>        self.relu = nn.ReLU()<br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">forward</span>(<span class="hljs-params">self, x</span>):<br>        x = x.view(-<span class="hljs-number">1</span>, <span class="hljs-number">784</span>)<br>        x = self.relu(self.l1(x))<br>        x = self.relu(self.l2(x))<br>        x = self.relu(self.l3(x))<br>        x = self.relu(self.l4(x))<br>        <span class="hljs-keyword">return</span> self.l5(x)<br><br>my_model = Net()<br>criterion = nn.CrossEntropyLoss()<br>optimizer = optim.SGD(my_model.parameters(), lr=<span class="hljs-number">0.01</span>, momentum=<span class="hljs-number">0.5</span>)<br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">train</span>(<span class="hljs-params">epoch</span>):<br>    running_loss = <span class="hljs-number">0.0</span><br>    <span class="hljs-keyword">for</span> batch_idx, data <span class="hljs-keyword">in</span> <span class="hljs-built_in">enumerate</span>(train_loader, <span class="hljs-number">0</span>):<br>        inputs, target = data<br>        optimizer.zero_grad()<br>        <span class="hljs-comment"># forward + backward + update</span><br>        outputs = my_model(inputs)<br>        loss = criterion(outputs, target)<br>        loss.backward()<br>        optimizer.step()<br>        running_loss += loss.item()<br>        <span class="hljs-keyword">if</span> batch_idx % <span class="hljs-number">300</span> == <span class="hljs-number">299</span>:<br>            <span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;[%d, %5d] loss: %.3f&#x27;</span> % (epoch + <span class="hljs-number">1</span>, batch_idx + <span class="hljs-number">1</span>, running_loss / <span class="hljs-number">300</span>))<br>        running_loss = <span class="hljs-number">0.0</span><br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">test</span>():<br>    correct = <span class="hljs-number">0</span><br>    total = <span class="hljs-number">0</span><br>    <span class="hljs-keyword">with</span> torch.no_grad():<br>        <span class="hljs-keyword">for</span> data <span class="hljs-keyword">in</span> test_loader:<br>            images, labels = data<br>            outputs = my_model(images)<br>            _, predicted = torch.<span class="hljs-built_in">max</span>(outputs, dim=<span class="hljs-number">1</span>)<br>            total += labels.size(<span class="hljs-number">0</span>)<br>            correct += (predicted == labels).<span class="hljs-built_in">sum</span>().item()<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;Accuracy on test set: %d %%&#x27;</span> % (<span class="hljs-number">100</span> * correct / total))<br><br><span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&#x27;__main__&#x27;</span>:<br>    <span class="hljs-keyword">for</span> epoch_num <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">10</span>):<br>        train(epoch_num)<br>        test()<br></code></pre></td></tr></table></figure>
+
+<h2 id="部分代码解释"><a href="#部分代码解释" class="headerlink" title="部分代码解释"></a>部分代码解释</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python">transform = transforms.Compose([<br>    transforms.ToTensor(),<br>    transforms.Normalize((<span class="hljs-number">0.1307</span>,), (<span class="hljs-number">0.3081</span>,))<br>])<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>transforms.Compose([…])：定义一个初始化初始数据的<strong>流水线操作</strong>，然后作为参数设置到后面的DataLoader中</li>
+<li>transforms.ToTensor()：<ul>
+<li>将输入图像（通常是 PIL 图像或 NumPy <code>uint8</code> 数组，像素值范围是 0-255 ）转换为 PyTorch 的 <code>FloatTensor</code></li>
+<li>在转换过程中，它自动将像素值从整数范围 0-255 <strong>归一化</strong>到浮点数范围 [0.0, 1.0]</li>
+<li>将图像的维度顺序从传统的 (H, W, C)（高、宽、通道数）转换为 PyTorch 所需的 (C, H, W)（通道数、高、宽）。对于 MNIST，形状变为 (1, 28, 28)<ul>
+<li>通道：说简单点就是这个样本是由几个矩阵叠加起来的。一张正常的彩色图片，就有3个通道，即三原色。而MNIST中是黑白图片，所以只有一个通道</li>
+<li>高，宽28，指的是MNIST中当个数字样本的高宽有几个像素点</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>transforms.Normalize((0.1307,), (0.3081,))：对张量进行<strong>标准化</strong>。它进一步将像素值调整到具有<strong>零均值</strong>和<strong>单位方差</strong>的分布，以提高模型训练效率和收敛速度。<ul>
+<li><code>(0.1307,)</code>：MNIST 训练集所有像素的<strong>平均值mean</strong></li>
+<li><code>(0.3081,)</code>：MNIST 训练集所有像素的<strong>标准差std</strong></li>
+<li>调整公式为：<strong>（原像素值 - mean）&#x2F; std</strong></li>
+</ul>
+</li>
+<li>所以最终的流水线是<ul>
+<li>拿到图片</li>
+<li>变成[28 * 28 * 1]的三维张量，且值域为0-255</li>
+<li>将值域归一化到浮点数范围 [0.0, 1.0]</li>
+<li>维度调整为[1 * 28 * 28]</li>
+<li>标准化像素值</li>
+<li>之后每张图片都会变成同上规格的张量</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs python">x = x.view(-<span class="hljs-number">1</span>, <span class="hljs-number">784</span>)<br><br><span class="hljs-comment"># x实际上是 input</span><br>    <span class="hljs-keyword">for</span> batch_idx, data <span class="hljs-keyword">in</span> <span class="hljs-built_in">enumerate</span>(train_loader, <span class="hljs-number">0</span>):<br>        inputs, target = data<br>        optimizer.zero_grad()<br>        <span class="hljs-comment"># forward + backward + update</span><br>        outputs = my_model(inputs)<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li><code>x</code> 此时是图像张量，其形状为 (Batch Size, 1, 28, 28)。但模型的第一层是全连接层 (<code>nn.Linear</code>)，它需要一个<strong>扁平化</strong>的输入向量。即矩阵</li>
+<li><strong><code>view(...)</code> 的作用：</strong> 它是 PyTorch 中用于<strong>重塑 (Reshape)</strong> 张量的方法。</li>
+<li><strong><code>-1</code> 的作用：</strong> -1是一个占位符。它告诉 PyTorch <strong>“自动计算这个维度的大小”</strong>，也就是batch的大小</li>
+<li><strong><code>784</code> 的作用：</strong>28 * 28 &#x3D; 784。这表示将每个图像的1 * 28 * 28个像素<strong>展平</strong>为一个长度为 784 的向量。<strong>一行一行展开</strong></li>
+<li><strong>效果：</strong> 将输入张量的形状从 (Batch Size, 1, 28, 28) 重塑为 (Batch Size, 784)，使之符合第一个线性层 <code>self.l1 = nn.Linear(784, 512)</code> 的输入要求。</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python">optimizer = optim.SGD(my_model.parameters(), lr=<span class="hljs-number">0.01</span>, momentum=<span class="hljs-number">0.5</span>)<br></code></pre></td></tr></table></figure>
+
+<p><strong><code>momentum=0.5</code> (动量)：</strong></p>
+<ul>
+<li><strong>含义：</strong> SGD 的一个优化项。它在更新时会考虑<strong>历史梯度</strong>（即之前的更新方向），而不是只依赖于当前的 Batch 梯度。</li>
+<li><strong>作用：</strong> 帮助优化器克服梯度中的小波动和局部极小值，加速 SGD 在“平坦”区域的收敛，并减少训练时的震荡。</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python">_, predicted = torch.<span class="hljs-built_in">max</span>(outputs, dim=<span class="hljs-number">1</span>)<br></code></pre></td></tr></table></figure>
+
+<p><strong><code>torch.max(..., dim=1)</code>：</strong></p>
+<ul>
+<li><strong>作用：</strong> 找出 Tensor 在指定维度上的最大值和对应的索引。</li>
+<li><strong><code>dim=1</code>：</strong> 对每一行（即对每个样本的 10 个类别得分）进行操作。等于0则表示按列操作</li>
+<li><strong>返回结果：</strong> 它返回一个包含两个 Tensor 的元组：<code>(max_values, max_indices)</code>。</li>
+<li><strong><code>_</code>：</strong> 占位符，忽略最大值本身。</li>
+<li><strong><code>predicted</code>：</strong> 存储最大值所在的<strong>索引</strong>。这个索引（0 到 9）就是模型预测的类别。</li>
+</ul>
 
                 
               </div>
