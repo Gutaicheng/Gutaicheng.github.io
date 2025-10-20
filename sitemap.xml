@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://blog.gutaicheng.top/2025/10/20/Pytorch%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%AE%9E%E8%B7%B5/</loc>
+    
+    <lastmod>2025-10-20</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://blog.gutaicheng.top/2025/10/19/Kaggle%E7%AB%9E%E8%B5%9B-Titanic/</loc>
     
     <lastmod>2025-10-20</lastmod>
@@ -12,15 +21,6 @@
   
   <url>
     <loc>https://blog.gutaicheng.top/2025/10/20/Pandas%E5%88%9D%E7%BA%A7/</loc>
-    
-    <lastmod>2025-10-20</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.gutaicheng.top/2025/10/20/Pytorch%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%AE%9E%E8%B7%B5/</loc>
     
     <lastmod>2025-10-20</lastmod>
     
