@@ -1,0 +1,717 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/tubiao2.png">
+  <link rel="icon" href="/img/tubiao2.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="GuTaicheng">
+  <meta name="keywords" content="博客, 学习, Java">
+  
+    <meta name="description" content="刘二大人  第08讲  课后练习  题目地址：Titanic - Machine Learning from Disaster | Kaggle 干了兄弟们，该说的都在注释里了。 Pandas基本操作参考本网站另一篇博文：Pandas快速入门指南：CSV操作与数据清洗核心 - GuTaicheng’s Blog 代码： 12345678910111213141516171819202122">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Kaggle竞赛-Titanic">
+<meta property="og:url" content="https://blog.gutaicheng.top/2025/10/19/Kaggle%E7%AB%9E%E8%B5%9B-Titanic/index.html">
+<meta property="og:site_name" content="GuTaicheng&#39;s Blog">
+<meta property="og:description" content="刘二大人  第08讲  课后练习  题目地址：Titanic - Machine Learning from Disaster | Kaggle 干了兄弟们，该说的都在注释里了。 Pandas基本操作参考本网站另一篇博文：Pandas快速入门指南：CSV操作与数据清洗核心 - GuTaicheng’s Blog 代码： 12345678910111213141516171819202122">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://gitee.com/Gu-taicheng/image/raw/master/img/image-20251020223825981.png">
+<meta property="article:published_time" content="2025-10-19T14:48:00.000Z">
+<meta property="article:modified_time" content="2025-10-20T14:55:21.202Z">
+<meta property="article:author" content="GuTaicheng">
+<meta property="article:tag" content="Kaggle - 深度学习">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://gitee.com/Gu-taicheng/image/raw/master/img/image-20251020223825981.png">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>Kaggle竞赛-Titanic - GuTaicheng&#39;s Blog</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"blog.gutaicheng.top","root":"/","version":"1.9.2","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":21404155,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <!-- 51.la Analytics -->
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        Fluid.utils.createScript('//js.users.51.la/21404155.js');
+      }
+    </script>
+  
+
+  
+
+  
+
+
+
+  
+  <meta name="referrer" content="never">
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>GuTaicheng</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="Kaggle竞赛-Titanic"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2025-10-19 22:48" pubdate>
+          2025年10月19日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          5.8k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          49 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="busuanzi_container_page_pv" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="busuanzi_value_page_pv"></span> 次
+        </span>
+        
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">Kaggle竞赛-Titanic</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <meta name="referrer" content="no-referrer" />
+
+
+
+<p>刘二大人  第08讲  课后练习 </p>
+<p>题目地址：<a target="_blank" rel="noopener" href="https://www.kaggle.com/competitions/titanic/overview">Titanic - Machine Learning from Disaster | Kaggle</a></p>
+<p>干了兄弟们，该说的都在注释里了。</p>
+<p>Pandas基本操作参考本网站另一篇博文：<a href="https://blog.gutaicheng.top/2025/10/20/Pandas%E5%88%9D%E7%BA%A7/">Pandas快速入门指南：CSV操作与数据清洗核心 - GuTaicheng’s Blog</a></p>
+<p>代码：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np<br><span class="hljs-keyword">import</span> torch<br><span class="hljs-keyword">from</span> torch <span class="hljs-keyword">import</span> nn, optim<br><span class="hljs-keyword">from</span> torch.utils.data <span class="hljs-keyword">import</span> Dataset, DataLoader<br><span class="hljs-keyword">import</span> pandas <span class="hljs-keyword">as</span> pd<br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">TrainDataset</span>(<span class="hljs-title class_ inherited__">Dataset</span>):<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self, filepath</span>):<br>        <span class="hljs-comment"># 1. 加载数据</span><br>        df = pd.read_csv(filepath)<br><br>        <span class="hljs-comment"># A. 目标变量 (Y): 索引 1 (Survived)</span><br>        y_numpy = df.iloc[:, <span class="hljs-number">1</span>].values.astype(np.float32)<br>        self.y_data = torch.from_numpy(y_numpy).unsqueeze(dim=<span class="hljs-number">1</span>)<br><br>        <span class="hljs-comment"># B. 填充缺失值：用均值填充 Age 和 Fare 的缺失值</span><br>        df[<span class="hljs-string">&#x27;Age&#x27;</span>] = df[<span class="hljs-string">&#x27;Age&#x27;</span>].fillna(df[<span class="hljs-string">&#x27;Age&#x27;</span>].mean())<br>        df[<span class="hljs-string">&#x27;Fare&#x27;</span>] = df[<span class="hljs-string">&#x27;Fare&#x27;</span>].fillna(df[<span class="hljs-string">&#x27;Fare&#x27;</span>].mean())<br><br>        <span class="hljs-comment"># C. 处理分类特征：</span><br>        <span class="hljs-comment"># C1. Sex (二元编码)</span><br>        df[<span class="hljs-string">&#x27;Sex_Encoded&#x27;</span>] = df[<span class="hljs-string">&#x27;Sex&#x27;</span>].<span class="hljs-built_in">map</span>(&#123;<span class="hljs-string">&#x27;male&#x27;</span>: <span class="hljs-number">1</span>, <span class="hljs-string">&#x27;female&#x27;</span>: <span class="hljs-number">0</span>&#125;).astype(np.float32)<br><br>        <span class="hljs-comment"># C2. Embarked (独热编码)</span><br>        <span class="hljs-comment"># 填充缺失值（使用最常见的值 &#x27;S&#x27;）</span><br>        df[<span class="hljs-string">&#x27;Embarked&#x27;</span>] = df[<span class="hljs-string">&#x27;Embarked&#x27;</span>].fillna(<span class="hljs-string">&#x27;S&#x27;</span>)<br>        df_embarked_onehot = pd.get_dummies(df[<span class="hljs-string">&#x27;Embarked&#x27;</span>], prefix=<span class="hljs-string">&#x27;Embarked&#x27;</span>, drop_first=<span class="hljs-literal">True</span>)<br>        df = pd.concat([df, df_embarked_onehot], axis=<span class="hljs-number">1</span>)<br><br>        <span class="hljs-comment"># D. 选择最终特征列 (X)</span><br>        <span class="hljs-comment"># 假设你需要的特征最终是：</span><br>        <span class="hljs-comment"># Pclass (idx 2), Age (idx 5), SibSp (idx 6), Parch (idx 7), Fare (idx 9)</span><br>        <span class="hljs-comment"># 加上我们新增的 &#x27;Sex_Encoded&#x27;, &#x27;Embarked_Q&#x27;, &#x27;Embarked_S&#x27;</span><br>        feature_columns = [<span class="hljs-string">&#x27;Pclass&#x27;</span>, <span class="hljs-string">&#x27;Age&#x27;</span>, <span class="hljs-string">&#x27;SibSp&#x27;</span>, <span class="hljs-string">&#x27;Parch&#x27;</span>, <span class="hljs-string">&#x27;Fare&#x27;</span>, <span class="hljs-string">&#x27;Sex_Encoded&#x27;</span>]<br><br>        <span class="hljs-comment"># 将独热编码的列名也加入列表</span><br>        feature_columns.extend(df_embarked_onehot.columns.tolist())<br><br>        <span class="hljs-comment"># 从 DataFrame 中提取最终的特征矩阵</span><br>        df_x_final = df[feature_columns]<br><br>        <span class="hljs-comment"># 4. 转换特征为 Tensor</span><br>        x_numpy = df_x_final.values.astype(np.float32)<br>        self.x_data = torch.from_numpy(x_numpy)<br><br>        <span class="hljs-comment"># 5. 设置长度</span><br>        self.<span class="hljs-built_in">len</span> = self.x_data.shape[<span class="hljs-number">0</span>]<br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__getitem__</span>(<span class="hljs-params">self, index</span>):<br>        <span class="hljs-keyword">return</span> self.x_data[index], self.y_data[index]<br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__len__</span>(<span class="hljs-params">self</span>):<br>        <span class="hljs-keyword">return</span> self.<span class="hljs-built_in">len</span><br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">TestDataset</span>(<span class="hljs-title class_ inherited__">Dataset</span>):<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self, filepath</span>):<br>        <span class="hljs-comment"># 1. 加载数据</span><br>        df = pd.read_csv(filepath)<br>        self.passenger_ids = df[<span class="hljs-string">&#x27;PassengerId&#x27;</span>].values<br><br>        <span class="hljs-comment"># A. 填充缺失值：用均值填充 Age 和 Fare 的缺失值</span><br>        df[<span class="hljs-string">&#x27;Age&#x27;</span>] = df[<span class="hljs-string">&#x27;Age&#x27;</span>].fillna(df[<span class="hljs-string">&#x27;Age&#x27;</span>].mean())<br>        df[<span class="hljs-string">&#x27;Fare&#x27;</span>] = df[<span class="hljs-string">&#x27;Fare&#x27;</span>].fillna(df[<span class="hljs-string">&#x27;Fare&#x27;</span>].mean())<br><br>        <span class="hljs-comment"># B. 处理分类特征：</span><br>        <span class="hljs-comment"># B1. Sex (二元编码)</span><br>        df[<span class="hljs-string">&#x27;Sex_Encoded&#x27;</span>] = df[<span class="hljs-string">&#x27;Sex&#x27;</span>].<span class="hljs-built_in">map</span>(&#123;<span class="hljs-string">&#x27;male&#x27;</span>: <span class="hljs-number">1</span>, <span class="hljs-string">&#x27;female&#x27;</span>: <span class="hljs-number">0</span>&#125;).astype(np.float32)<br><br>        <span class="hljs-comment"># B2. Embarked (独热编码)</span><br>        <span class="hljs-comment"># 填充缺失值（使用最常见的值 &#x27;S&#x27;）</span><br>        df[<span class="hljs-string">&#x27;Embarked&#x27;</span>] = df[<span class="hljs-string">&#x27;Embarked&#x27;</span>].fillna(<span class="hljs-string">&#x27;S&#x27;</span>)<br>        df_embarked_onehot = pd.get_dummies(df[<span class="hljs-string">&#x27;Embarked&#x27;</span>], prefix=<span class="hljs-string">&#x27;Embarked&#x27;</span>, drop_first=<span class="hljs-literal">True</span>)<br>        df = pd.concat([df, df_embarked_onehot], axis=<span class="hljs-number">1</span>)<br><br>        <span class="hljs-comment"># C. 选择最终特征列 (X)</span><br>        <span class="hljs-comment"># 假设你需要的特征最终是：</span><br>        <span class="hljs-comment"># Pclass (idx 1), Age (idx 4), SibSp (idx 5), Parch (idx 6), Fare (idx 8)</span><br>        <span class="hljs-comment"># 加上我们新增的 &#x27;Sex_Encoded&#x27;, &#x27;Embarked_Q&#x27;, &#x27;Embarked_S&#x27;</span><br>        feature_columns = [<span class="hljs-string">&#x27;Pclass&#x27;</span>, <span class="hljs-string">&#x27;Age&#x27;</span>, <span class="hljs-string">&#x27;SibSp&#x27;</span>, <span class="hljs-string">&#x27;Parch&#x27;</span>, <span class="hljs-string">&#x27;Fare&#x27;</span>, <span class="hljs-string">&#x27;Sex_Encoded&#x27;</span>]<br><br>        <span class="hljs-comment"># 将独热编码的列名也加入列表</span><br>        feature_columns.extend(df_embarked_onehot.columns.tolist())<br><br>        <span class="hljs-comment"># 从 DataFrame 中提取最终的特征矩阵</span><br>        df_x_final = df[feature_columns]<br><br>        <span class="hljs-comment"># 4. 转换特征为 Tensor</span><br>        x_numpy = df_x_final.values.astype(np.float32)<br>        self.x_data = torch.from_numpy(x_numpy)<br><br>        <span class="hljs-comment"># 5. 设置长度</span><br>        self.<span class="hljs-built_in">len</span> = self.x_data.shape[<span class="hljs-number">0</span>]<br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__getitem__</span>(<span class="hljs-params">self, index</span>):<br>        <span class="hljs-keyword">return</span> self.x_data[index], self.passenger_ids[index]<br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__len__</span>(<span class="hljs-params">self</span>):<br>        <span class="hljs-keyword">return</span> self.<span class="hljs-built_in">len</span><br><br><br>train_dataset = TrainDataset(filepath=<span class="hljs-string">&#x27;DataSet/titanic/train.csv&#x27;</span>)<br>train_loader = DataLoader(dataset=train_dataset, batch_size=<span class="hljs-number">32</span>, shuffle=<span class="hljs-literal">True</span>, num_workers=<span class="hljs-number">0</span>)<br><br>test_dataset = TestDataset(filepath=<span class="hljs-string">&#x27;DataSet/titanic/test.csv&#x27;</span>)<br>test_loader = DataLoader(dataset=test_dataset, batch_size=<span class="hljs-number">32</span>, shuffle=<span class="hljs-literal">False</span>, num_workers=<span class="hljs-number">0</span>)<br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">TitanicNet</span>(nn.Module):<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self</span>):<br>        <span class="hljs-built_in">super</span>(TitanicNet, self).__init__()<br>        self.l1 = nn.Linear(<span class="hljs-number">8</span>, <span class="hljs-number">4</span>)<br>        self.l2 = nn.Linear(<span class="hljs-number">4</span>, <span class="hljs-number">2</span>)<br>        self.l3 = nn.Linear(<span class="hljs-number">2</span>, <span class="hljs-number">1</span>)<br>        self.relu = nn.ReLU()<br>        self.sigmoid = nn.Sigmoid()<br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">forward</span>(<span class="hljs-params">self, x</span>):<br>        x = self.relu(self.l1(x))<br>        x = self.relu(self.l2(x))<br>        x = self.sigmoid(self.l3(x))<br>        <span class="hljs-keyword">return</span> x<br><br>my_model = TitanicNet()<br>criterion = nn.BCELoss(reduction=<span class="hljs-string">&#x27;mean&#x27;</span>) <span class="hljs-comment"># &lt;-- 新写法</span><br>optimizer = optim.SGD(my_model.parameters(), lr=<span class="hljs-number">0.05</span>)<br><br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">train</span>():<br>    total_batch_loss = <span class="hljs-number">0.0</span><br>    num_batches = <span class="hljs-number">0</span><br>    <span class="hljs-keyword">for</span> i, data <span class="hljs-keyword">in</span> <span class="hljs-built_in">enumerate</span>(train_loader):<br>        x_data, y_data = data<br>        optimizer.zero_grad()<br>        y_pred = my_model(x_data)<br>        loss = criterion(y_pred, y_data)<br>        total_batch_loss += loss.item()<br>        num_batches += <span class="hljs-number">1</span><br>        loss.backward()<br>        optimizer.step()<br>    avg_loss = total_batch_loss / num_batches<br>    <span class="hljs-keyword">return</span> avg_loss<br><br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">test</span>():<br>    <span class="hljs-string">&quot;&quot;&quot;在测试集上进行推理（无标签），生成预测结果和 ID。&quot;&quot;&quot;</span><br>    my_model.<span class="hljs-built_in">eval</span>()  <span class="hljs-comment"># 切换到评估模式</span><br>    all_predictions = []<br>    all_ids = []<br><br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;\n--- 开始在测试集上进行推理 ---&quot;</span>)<br><br>    <span class="hljs-keyword">with</span> torch.no_grad():  <span class="hljs-comment"># 推理时禁用梯度</span><br>        <span class="hljs-keyword">for</span> x_data, passenger_ids <span class="hljs-keyword">in</span> test_loader:<br>            <span class="hljs-comment"># 1. 前向传播：模型输出概率 (0-1)</span><br>            outputs = my_model(x_data)<br><br>            <span class="hljs-comment"># 2. 预测类别：将概率 &gt;= 0.6 视为幸存 (1)，否则为未幸存 (0)</span><br>            <span class="hljs-comment"># 因为禁用梯度，所以output在这默认属于data</span><br>            <span class="hljs-comment"># 而data属于二维张量，也就是矩阵，所以形状是(batch_size, 1), 这里是(32,  1)</span><br>            <span class="hljs-comment"># (outputs &gt;= 0.6) 转换为 32*1 的布尔矩阵</span><br>            <span class="hljs-comment"># 使用 .int() 转换为整数类型 32 * 1 的 零一矩阵</span><br>            <span class="hljs-comment"># 使用 .squeeze(dim=1) 转换为一维的向量 一行32个数值</span><br>            predicted_labels = (outputs &gt;= <span class="hljs-number">0.7</span>).<span class="hljs-built_in">int</span>().squeeze(dim=<span class="hljs-number">1</span>)<br><br>            <span class="hljs-comment"># 3. 收集结果</span><br>            all_predictions.extend(predicted_labels.numpy())<br>            all_ids.extend(passenger_ids.numpy())<br><br>    <span class="hljs-comment"># 4. 整合结果并打印</span><br>    submission_df = pd.DataFrame(&#123;<br>        <span class="hljs-string">&#x27;PassengerId&#x27;</span>: all_ids,<br>        <span class="hljs-string">&#x27;Survived&#x27;</span>: all_predictions<br>    &#125;)<br><br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;--- 推理完成 ---&quot;</span>)<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">f&quot;生成的预测总数：<span class="hljs-subst">&#123;<span class="hljs-built_in">len</span>(all_predictions)&#125;</span>&quot;</span>)<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;前 5 个预测结果：&quot;</span>)<br>    <span class="hljs-built_in">print</span>(submission_df.head())<br><br>    <span class="hljs-comment"># my_model.train() # 可选：如果紧接着要继续训练，切换回训练模式</span><br>    <span class="hljs-keyword">return</span> submission_df<br><br><span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&#x27;__main__&#x27;</span>:<br>    <span class="hljs-keyword">for</span> epoch_num <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">2000</span>):<br>        l = train()<br>        <span class="hljs-keyword">if</span> epoch_num % <span class="hljs-number">200</span> == <span class="hljs-number">199</span>:<br>            <span class="hljs-built_in">print</span>(<span class="hljs-string">f&quot;epoch_num = <span class="hljs-subst">&#123;epoch_num&#125;</span>, loss = <span class="hljs-subst">&#123;l&#125;</span>&quot;</span>)<br><br>    <span class="hljs-comment"># 调用测试方法进行推理</span><br>    submission = test()<br><br>    <span class="hljs-comment"># 可选：将结果保存为 CSV 文件</span><br>    submission.to_csv(<span class="hljs-string">&#x27;DataSet/titanic/submission.csv&#x27;</span>, index=<span class="hljs-literal">False</span>)<br></code></pre></td></tr></table></figure>
+
+
+
+<p><img src="https://gitee.com/Gu-taicheng/image/raw/master/img/image-20251020223438243.png" srcset="/img/loading.gif" lazyload alt="最好成绩"></p>
+<p><img src="https://gitee.com/Gu-taicheng/image/raw/master/img/image-20251020223447853.png" srcset="/img/loading.gif" lazyload alt="image-20251020223447853"></p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" class="category-chain-item">深度学习</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/Kaggle-%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">#Kaggle - 深度学习</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>Kaggle竞赛-Titanic</div>
+      <div>https://blog.gutaicheng.top/2025/10/19/Kaggle竞赛-Titanic/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>GuTaicheng</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2025年10月19日</div>
+        </div>
+      
+      
+      <div class="license-meta-item">
+        <div>许可协议</div>
+        <div>
+          
+            
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+              <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                <i class="iconfont icon-by"></i>
+              </span>
+              </a>
+            
+          
+        </div>
+      </div>
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2025/10/20/Pytorch%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%AE%9E%E8%B7%B5/" title="Pytorch深度学习实践">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Pytorch深度学习实践</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2025/09/16/Conda%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/" title="Conda使用教程">
+                        <span class="hidden-mobile">Conda使用教程</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  <article id="comments" lazyload>
+    
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://lib.baomitu.com/valine/1.4.17/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"Mm7zXkSdUNoJGtCjXx5EokSc-gzGzoHsz","appKey":"QeD6ibBU3GKctfSty5fFG9Xz","path":"window.location.pathname","placeholder":"什么都不用填就可以评论啦(当然留个qq或者邮箱更好哦)","avatar":"retro","meta":["nick","mail","link"],"requiredFields":[],"pageSize":10,"lang":"zh-CN","highlight":false,"recordIP":false,"serverURLs":"","emojiCDN":null,"emojiMaps":null,"enableQQ":false},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+        Fluid.utils.waitElementVisible('#valine .vcontent', () => {
+          var imgSelector = '#valine .vcontent img:not(.vemoji)';
+          Fluid.plugins.imageCaption(imgSelector);
+          Fluid.plugins.fancyBox(imgSelector);
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+  </article>
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量 
+        <span id="busuanzi_value_site_pv"></span>
+         次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数 
+        <span id="busuanzi_value_site_uv"></span>
+         人
+      </span>
+    
+    
+  
+</div>
+
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      headingSelector : CONFIG.toc.headingSelector || 'h1,h2,h3,h4,h5,h6',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      collapseDepth   : CONFIG.toc.collapseDepth || 0,
+      scrollSmooth    : true,
+      headingsOffset  : -boardTop
+    });
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.10/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
