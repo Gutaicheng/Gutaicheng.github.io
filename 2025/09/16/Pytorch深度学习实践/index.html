@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://gitee.com/Gu-taicheng/image/raw/master/img/image-20250910122424933.png">
 <meta property="article:published_time" content="2025-09-16T13:50:00.000Z">
-<meta property="article:modified_time" content="2025-10-29T14:46:30.393Z">
+<meta property="article:modified_time" content="2025-11-03T14:30:32.654Z">
 <meta property="article:author" content="GuTaicheng">
 <meta property="article:tag" content="Pytorch - 深度学习">
 <meta name="twitter:card" content="summary_large_image">
@@ -246,7 +246,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          36k 字
+          37k 字
         
       </span>
     
@@ -257,7 +257,7 @@
         
         
         
-          301 分钟
+          308 分钟
         
       </span>
     
@@ -972,7 +972,12 @@
 </ul>
 <p><img src="https://gitee.com/Gu-taicheng/image/raw/master/img/image-20251029224249897.png" srcset="/img/loading.gif" lazyload alt="image-20251029224249897"></p>
 <p>以上展示了两种不同的残差块，都不是最简单的直接与原始x相加</p>
-<h2 id="10-5-残差块代码示例"><a href="#10-5-残差块代码示例" class="headerlink" title="10.5 残差块代码示例"></a>10.5 残差块代码示例</h2>
+<h2 id="10-5-残差块代码示例"><a href="#10-5-残差块代码示例" class="headerlink" title="10.5 残差块代码示例"></a>10.5 残差块代码示例</h2><p>网络如下图：</p>
+<p><img src="https://gitee.com/Gu-taicheng/image/raw/master/img/image-20251103220218683.png" srcset="/img/loading.gif" lazyload alt="image-20251103220218683"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">ResidualBlock</span>(nn.Module):<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self, channels</span>):<br>        <span class="hljs-built_in">super</span>(ResidualBlock, self).__init__()<br>        self.channels = channels<br>        self.conv1 = nn.Conv2d(channels, channels, kernel_size=<span class="hljs-number">3</span>, padding=<span class="hljs-number">1</span>)<br>        self.conv2 = nn.Conv2d(channels, channels, kernel_size=<span class="hljs-number">3</span>, padding=<span class="hljs-number">1</span>)<br>        self.relu = nn.ReLU()<br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">forward</span>(<span class="hljs-params">self, x</span>):<br>        Fx = self.relu(self.conv1(x))<br>        Fx = self.conv2(Fx)<br>        Fx = self.relu(Fx + x)<br>        <span class="hljs-keyword">return</span> Fx<br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">ResNet</span>(nn.Module):<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self</span>):<br>        <span class="hljs-built_in">super</span>(ResNet, self).__init__()<br>        self.conv1 = nn.Conv2d(<span class="hljs-number">1</span>, <span class="hljs-number">16</span>, kernel_size=<span class="hljs-number">5</span>)<br>        self.block1 = ResidualBlock(<span class="hljs-number">16</span>)<br><br>        self.conv2 = nn.Conv2d(<span class="hljs-number">16</span>, <span class="hljs-number">32</span>, kernel_size=<span class="hljs-number">5</span>)<br>        self.block2 = ResidualBlock(<span class="hljs-number">32</span>)<br><br>        self.maxPool = nn.MaxPool2d(<span class="hljs-number">2</span>)<br>        self.relu = nn.ReLU()<br><br>        self.linear = nn.Linear(<span class="hljs-number">32</span> * <span class="hljs-number">4</span> * <span class="hljs-number">4</span>, <span class="hljs-number">10</span>)<br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">forward</span>(<span class="hljs-params">self, x</span>):<br>        x = self.maxPool(self.relu(self.conv1(x)))<br>        x = self.block1(x)<br>        x = self.maxPool(self.relu(self.conv2(x)))<br>        x = self.block2(x)<br>        x = x.flatten(<span class="hljs-number">1</span>)<br>        x = self.linear(x)<br>        <span class="hljs-keyword">return</span> x<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://gitee.com/Gu-taicheng/image/raw/master/img/image-20251103220728858.png" srcset="/img/loading.gif" lazyload alt="image-20251103220728858"></p>
+<h1 id="循环神经网络（）"><a href="#循环神经网络（）" class="headerlink" title="循环神经网络（）"></a>循环神经网络（）</h1>
                 
               </div>
             
