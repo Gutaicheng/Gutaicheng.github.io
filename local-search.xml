@@ -410,31 +410,6 @@
   
   
   <entry>
-    <title>vim操作记录</title>
-    <link href="/2025/01/05/vim%E6%93%8D%E4%BD%9C%E8%AE%B0%E5%BD%95/"/>
-    <url>/2025/01/05/vim%E6%93%8D%E4%BD%9C%E8%AE%B0%E5%BD%95/</url>
-    
-    <content type="html"><![CDATA[<meta name="referrer" content="no-referrer" /><h1 id="搜索"><a href="#搜索" class="headerlink" title="搜索"></a>搜索</h1><figure class="highlight excel"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs excel">/+关键字 ，回车即可。此为从文档当前位置向下查找关键字，按<span class="hljs-built_in">n</span>键查找关键字下一个位置；<br>?+关键字，回车即可。此为从文档挡圈位置向上查找关键字，按<span class="hljs-built_in">n</span>键向上查找关键字；<br></code></pre></td></tr></table></figure>]]></content>
-    
-    
-    <categories>
-      
-      <category>Linux</category>
-      
-    </categories>
-    
-    
-    <tags>
-      
-      <tag>Linux</tag>
-      
-    </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
     <title>ubuntu下安装Redis</title>
     <link href="/2025/01/05/ubuntu%E5%AE%89%E8%A3%85Redis/"/>
     <url>/2025/01/05/ubuntu%E5%AE%89%E8%A3%85Redis/</url>
@@ -452,6 +427,31 @@
     <tags>
       
       <tag>Linux - redis</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>vim操作记录</title>
+    <link href="/2025/01/05/vim%E6%93%8D%E4%BD%9C%E8%AE%B0%E5%BD%95/"/>
+    <url>/2025/01/05/vim%E6%93%8D%E4%BD%9C%E8%AE%B0%E5%BD%95/</url>
+    
+    <content type="html"><![CDATA[<meta name="referrer" content="no-referrer" /><h1 id="搜索"><a href="#搜索" class="headerlink" title="搜索"></a>搜索</h1><figure class="highlight excel"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs excel">/+关键字 ，回车即可。此为从文档当前位置向下查找关键字，按<span class="hljs-built_in">n</span>键查找关键字下一个位置；<br>?+关键字，回车即可。此为从文档挡圈位置向上查找关键字，按<span class="hljs-built_in">n</span>键向上查找关键字；<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>Linux</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Linux</tag>
       
     </tags>
     
